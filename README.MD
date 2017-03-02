@@ -70,5 +70,5 @@ render(
 - [ ] Shake animation.
 - [ ] Add style props.
 - [ ] Add class props.
-- [ ] Github Pages.
+- [x] Github Pages.
 - [x] API DOC.
