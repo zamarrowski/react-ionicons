@@ -3,6 +3,8 @@
   <img src="./docs/ionicons-logo.png">
 </p>
 
+View page: https://zamarrowski.github.io/react-ionicons/
+
 ## Install
 ```
 npm install --save react-ionicons
