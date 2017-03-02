@@ -1,6 +1,6 @@
 # A React Ionicon Component
 <p style="text-align:center">
-![ionicon](docs/ionicons-logo.png)
+<img src="./docs/ionicons-logo.png">
 </p>
 
 ## Install
