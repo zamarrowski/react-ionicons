@@ -1,0 +1,23 @@
+.rotate:before {
+  -webkit-animation: rotateIcon 2s linear infinite;
+  -moz-animation: rotateIcon 2s linear infinite;
+  animation: rotateIcon 2s linear infinite;
+}
+
+@keyframes rotateIcon {
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@-webkit-keyframes rotateIcon {
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@-moz-keyframes rotate {
+  100% {
+    transform: rotate(360deg)
+  }
+}
