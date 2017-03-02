@@ -13,11 +13,12 @@ h2 {
   color: black
 }
 
-.install pre {
+pre {
   padding: 16px;
   background-color: #f6f8fa;
   margin-bottom: 30px;
   line-height: 1.45;
+  overflow: auto;
 }
 
 .install ul {

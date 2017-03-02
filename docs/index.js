@@ -16,8 +16,8 @@ render(
     <div>
       <Header></Header>
       <Jumbo></Jumbo>
-      <Install></Install>
       <Examples></Examples>
+      <Install></Install>
     </div>
   </MuiThemeProvider>
 , document.getElementById('container'))
