@@ -1,0 +1,49 @@
+'use strict'
+import React, { Component } from 'react'
+import styles from './install.css'
+
+class Install extends Component {
+  constructor() {
+    super()
+    this.usageCode = `
+    import React from 'react'
+    import { render } from 'react-dom'
+    import Ionicon from 'react-ionicons'
+
+    render(
+      <Ionicon icon="ion-home" fontSize="35px" color="red"></Ionicon>
+      <Ionicon icon="ion-cloud" rotate={true} fontSize="35px" color="blue"></Ionicon>
+      <Ionicon icon="ion-cloud" fontSize="35px" color="#C9C9C9"></Ionicon>
+      <Ionicon icon="ion-cloud" fontSize="35px" color="rgb(125, 176, 24)"></Ionicon>
+      <Ionicon icon="ion-refresh" rotate={true} fontSize="35px" color="rgb(125, 176, 24)"></Ionicon>
+    , document.getElementById('container'))
+    `
+  }
+  render() {
+    return(
+      <div className={styles.install}>
+        <h2>Install</h2>
+        <p>Use <b>npm</b> to install react-ionicons:</p>
+        <pre>
+          npm install --save react-ionicons
+        </pre>
+        <p>For more information and configuration <b>see the repository in <a href="http://wwww.github.com/zamarrowski/react-ionicons">Github</a>.</b></p>
+
+        <h2>Usage</h2>
+        <pre>
+          {this.usageCode}
+        </pre>
+
+        <h2>Features</h2>
+        <ul>
+          <li>No dependencies, just React.</li>
+          <li>Simple API.</li>
+          <li>Animations.</li>
+          <li>Customizable.</li>
+        </ul>
+      </div>
+    )
+  }
+}
+
+export default Install
