@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ionicons from './../ionicons/css/ionicons.css'
+import ionicons from './../ionicons/css/ionicons.min.css'
 import styles from './index.css'
 
 class Ionicon extends Component {
