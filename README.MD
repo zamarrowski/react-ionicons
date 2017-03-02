@@ -1,5 +1,5 @@
 # A React Ionicon Component
-<p style="text-align:center">
+<p align="center">
 <img src="./docs/ionicons-logo.png">
 </p>
 
