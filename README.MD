@@ -8,6 +8,31 @@
 npm install --save react-ionicons
 ```
 
+## Configure webpack:
+You need install css-loader and style-loader:
+```
+npm install --save-dev css-loader style-loader
+```
+Configure webpack.config.js:
+```
+{
+  test: /\.css$/,
+  loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+}
+```
+And install file-loader:
+```
+npm install --save-dev file-loader
+```
+Configure webpack.config.js:
+```
+{
+  test: /\.(eot|svg|ttf|woff|woff2)$/,
+  loader: 'file-loader?name=fonts/[name].[ext]&publicPath=bin/'
+}
+```
+Replace public path with your output path.
+
 ## Usage
 ```
 import React from 'react'
