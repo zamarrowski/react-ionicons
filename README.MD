@@ -1,6 +1,6 @@
 # A React Ionicon Component
 <p align="center">
-<img src="./docs/ionicons-logo.png">
+  <img src="./docs/ionicons-logo.png">
 </p>
 
 ## Install
@@ -55,9 +55,18 @@ render(
 * Animations.
 * Customizable.
 
+## API:
+
+| Param | Type | Description | Example |
+| --- | --- | --- | --- |
+| icon | <code>String</code> | Icon of ionicons. See http://ionicons.com/. | icon="ion-home" |
+| fontSize | <code>String</code> | Icon size. Allow all units (px, em, %, pt...). | fontSize="35px" |
+| color | <code>String</code> | Icon color. Allow string (blue, red, cyan...), rgb, rgba and hexadecimal colors. | color="#C9C9C9" |
+| rotate | <code>Boolean</code> | Apply rotate transition to icon | rotate={true} |
+
 ## TODO:
 - [ ] Shake animation.
 - [ ] Add style props.
 - [ ] Add class props.
 - [ ] Github Pages.
-- [ ] API DOC.
+- [x] API DOC.
