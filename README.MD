@@ -31,8 +31,8 @@ render(
 * Customizable.
 
 ## TODO:
-- [] Shake animation.
-- [] Add style props.
-- [] Add class props.
-- [] Github Pages.
-- [] API DOC.
+- [ ] Shake animation.
+- [ ] Add style props.
+- [ ] Add class props.
+- [ ] Github Pages.
+- [ ] API DOC.
