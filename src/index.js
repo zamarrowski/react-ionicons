@@ -16,7 +16,7 @@ class Ionicon extends Component {
 
     return(
       <i
-      className={ionicons[this.props.icon] + ' ' + `${this.props.rotate ? styles.rotate : ''}`}
+      className={this.props.icon + ' ' + `${this.props.rotate ? 'rotate' : ''}`}
       style={style}
       ></i>)
   }

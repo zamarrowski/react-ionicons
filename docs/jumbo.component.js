@@ -6,8 +6,8 @@ import Ionicon from 'react-ionicons'
 class Jumbo extends Component {
   render() {
     return(
-      <div className={styles.jumbo}>
-        <div className={styles.jumboHeader}>
+      <div className="jumbo">
+        <div className="jumboHeader">
           <Ionicon icon="ion-ionic" fontSize="150px" color="white"></Ionicon>
           <h1>react-ionicons</h1>
           <p>A React Ionicon component</p>

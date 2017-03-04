@@ -11,7 +11,8 @@
   },
   "scripts": {
     "prepublish": "babel ./src --out-dir ./lib --source-maps --presets es2015,react --plugins babel-plugin-add-module-exports",
-    "start": "webpack --watch"
+    "start": "webpack --watch",
+    "build": "webpack"
   },
   "devDependencies": {
     "babel": "6.23.0",

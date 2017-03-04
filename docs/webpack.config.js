@@ -16,11 +16,11 @@ let config = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+        loader: 'style-loader!css-loader'
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file-loader?name=fonts/[name].[ext]&publicPath=bin/'
+        loader: 'file-loader?publicPath=bin/'
       }
     ]
   }
