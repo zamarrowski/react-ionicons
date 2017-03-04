@@ -8,6 +8,7 @@ import Header from './header.component.js'
 import Jumbo from './jumbo.component.js'
 import Install from './install.component.js'
 import Examples from './examples.component.js'
+import IconsContainer from './IconsContainer.js'
 
 injectTapEventPlugin()
 
@@ -18,6 +19,7 @@ render(
       <Jumbo></Jumbo>
       <Examples></Examples>
       <Install></Install>
+      <IconsContainer></IconsContainer>
     </div>
   </MuiThemeProvider>
 , document.getElementById('container'))
