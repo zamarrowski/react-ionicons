@@ -4,14 +4,13 @@
 
 .examplesContainer {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
 }
 
 .example {
-  flex-basis: 48%;
-  flex-grow: 1;
+  width: 48%!important;
   text-align: center;
   padding: 20px;
-  margin: 10px;
+  margin: auto;
+  margin-top: 20px
 }
