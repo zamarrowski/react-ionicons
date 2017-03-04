@@ -1,0 +1,21 @@
+.iconsContainerSection {
+  padding: 20px;
+}
+
+.iconsContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.iconsContainer .icon {
+  padding: 20px;
+  width: 10%;
+  margin-right: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.iconName {
+  font-size: 12px;
+  margin-top: 10px;
+}
