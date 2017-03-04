@@ -19,7 +19,7 @@ Configure webpack.config.js:
 ```
 {
   test: /\.css$/,
-  loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+  loader: 'style-loader!css-loader'
 }
 ```
 And install file-loader:
@@ -30,10 +30,10 @@ Configure webpack.config.js:
 ```
 {
   test: /\.(eot|svg|ttf|woff|woff2)$/,
-  loader: 'file-loader?name=fonts/[name].[ext]&publicPath=bin/'
+  loader: 'file-loader?publicPath=bin/'
 }
 ```
-Replace public path with your output path.
+Replace public path with your output bundle path.
 
 ## Usage
 ```
@@ -56,6 +56,7 @@ render(
 * Simple API.
 * Animations.
 * Customizable.
+* Support to Create React App
 
 ## API:
 

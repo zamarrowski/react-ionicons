@@ -21,13 +21,13 @@ class Install extends Component {
   }
   render() {
     return(
-      <div className={styles.install}>
+      <div className="install">
         <h2>Install</h2>
         <p>Use <b>npm</b> to install react-ionicons:</p>
         <pre>
           npm install --save react-ionicons
         </pre>
-        <p>For more information and configuration <b>see the repository in <a href="http://wwww.github.com/zamarrowski/react-ionicons">Github</a>.</b></p>
+        <p>For more information and configuration <b>see the repository in <a href="http://www.github.com/zamarrowski/react-ionicons">Github</a>.</b></p>
 
         <h2>Usage</h2>
         <pre>
