@@ -1,6 +1,6 @@
 # A React Ionicon Component
 <p align="center">
-  <img src="./ionicons/ionicons-logo.png">
+  <img src="https://raw.githubusercontent.com/zamarrowski/react-ionicons/master/ionicons/ionicons-logo.png">
 </p>
 
 View page: https://zamarrowski.github.io/react-ionicons/
