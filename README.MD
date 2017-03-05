@@ -65,7 +65,8 @@ render(
 | icon | <code>String</code> | Icon of ionicons. See http://ionicons.com/. | icon="ion-home" |
 | fontSize | <code>String</code> | Icon size. Allow all units (px, em, %, pt...). | fontSize="35px" |
 | color | <code>String</code> | Icon color. Allow string (blue, red, cyan...), rgb, rgba and hexadecimal colors. | color="#C9C9C9" |
-| rotate | <code>Boolean</code> | Apply rotate transition to icon | rotate={true} |
+| rotate | <code>Boolean</code> | Apply rotate animation to icon | rotate={true} |
+| shake | <code>Boolean</code> | Apply shake animation to icon | shake={true} |
 
 ## TODO:
 - [ ] Shake animation.

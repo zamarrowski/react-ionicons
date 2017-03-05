@@ -1,6 +1,6 @@
 {
   "name": "react-ionicons",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A React ionicon component",
   "main": "lib/index.js",
   "author": "zamarrowski",
