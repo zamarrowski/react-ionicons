@@ -9,6 +9,7 @@ class Examples extends Component {
     const loadExample = `<Ionicon icon="ion-load-c" fontSize="60px" color="#347eff" rotate={true}></Ionicon>`
     const loadLoopExample = `<Ionicon icon="ion-ios-loop-strong" fontSize="60px" rotate={true}></Ionicon>`
     const heartExample = `<Ionicon icon="ion-heart" fontSize="60px" color="red"></Ionicon>`
+    const bellExample = `<Ionicon icon="ion-ios-bell" shake={true} fontSize="60px" color="orange"></Ionicon>`
     return(
       <div className="examples">
         <h2>Examples</h2>
@@ -35,6 +36,12 @@ class Examples extends Component {
             <Ionicon icon="ion-heart" fontSize="60px" color="red"></Ionicon>
             <pre>
               {heartExample}
+            </pre>
+          </Paper>
+          <Paper className="example" zDepth={2}>
+            <Ionicon icon="ion-ios-bell" shake={true} fontSize="60px" color="orange"></Ionicon>
+            <pre>
+              {bellExample}
             </pre>
           </Paper>
         </div>
