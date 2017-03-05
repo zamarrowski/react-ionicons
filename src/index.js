@@ -16,9 +16,16 @@ class Ionicon extends Component {
 
     return(
       <i
-      className={this.props.icon + ' ' + `${this.props.rotate ? 'rotate' : ''}`}
+      className={this._getClasses()}
       style={style}
       ></i>)
+  }
+
+  _getClasses() {
+    const classNames = [this.props.icon]
+    if (this.props.rotate) classNames.push('rotate')
+    if (this.props.shake) classNames.push('shake')
+    return classNames.join(' ')
   }
 }
 
