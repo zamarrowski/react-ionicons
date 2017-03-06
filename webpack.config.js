@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-let webpack = require('webpack')
+let webpack = require('webpack');
 
 let config = {
   entry: './src/index.js',
@@ -12,7 +12,10 @@ let config = {
     loaders: [
       {
         test: /\.jsx?/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        query: {
+            presets:[ 'es2015', 'react', 'stage-2' ]
+        }
       },
       {
         test: /\.css$/,
@@ -25,6 +28,6 @@ let config = {
 
     ]
   }
-}
+};
 
-module.exports = config
+module.exports = config;

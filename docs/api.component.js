@@ -5,6 +5,12 @@ class Api extends Component {
   render() {
     const apiMethods = [
       {
+          param: 'style',
+          type: 'Object',
+          description: 'Style to apply (Optional)',
+          example: 'style={...your.style}'
+      },
+      {
         param: 'icon',
         type: 'String',
         description: 'Icon of ionicons.',
@@ -33,7 +39,13 @@ class Api extends Component {
         type: 'Boolean',
         description: 'Apply shake animation to icon',
         example: 'shake={true}'
-      }
+      },
+      {
+          param: 'beat',
+          type: 'Boolean',
+          description: 'Apply beat animation to icon',
+          example: 'beat={true}'
+      },
     ]
     return(
       <div className="api">
