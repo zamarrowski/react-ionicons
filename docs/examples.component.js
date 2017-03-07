@@ -27,7 +27,7 @@ class Examples extends Component {
             </pre>
           </Paper>
           <Paper className="example" zDepth={2}>
-            <Ionicon icon="ion-ios-loop-strong" fontSize="60px" rotate={true} />
+            <Ionicon icon="ion-ios-loop" fontSize="60px" rotate={true} />
             <pre>
               {loadLoopExample}
             </pre>

@@ -1,5 +1,5 @@
 /* Rotate animation */
-.rotate:before {
+.rotate {
   -webkit-animation: rotateIcon 2s linear infinite;
   -moz-animation: rotateIcon 2s linear infinite;
   animation: rotateIcon 2s linear infinite;
@@ -24,7 +24,7 @@
 }
 
 /* Shake animation */
-.shake:before {
+.shake {
   -webkit-animation: shakeIcon 0.82s linear infinite;
   -moz-animation: shakeIcon 0.82s linear infinite;
   animation: shakeIcon 0.82s linear infinite;
@@ -85,7 +85,7 @@
 }
 
 /* Beat animation */
-.beat:before {
+.beat {
   -webkit-animation: beatIcon 0.82s linear infinite;
   -moz-animation: beatIcon 0.82s linear infinite;
   animation: beatIcon 0.82s linear infinite;

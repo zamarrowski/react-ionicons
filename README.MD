@@ -1,6 +1,6 @@
 # A React Ionicon Component
 <p align="center">
-  <img src="https://raw.githubusercontent.com/zamarrowski/react-ionicons/master/ionicons/ionicons-logo.png">
+  <img src="https://raw.githubusercontent.com/zamarrowski/react-ionicons/master/ionicons-logo.png">
 </p>
 
 View page: https://zamarrowski.github.io/react-ionicons/
@@ -22,18 +22,6 @@ Configure webpack.config.js:
   loader: 'style-loader!css-loader'
 }
 ```
-And install file-loader:
-```
-npm install --save-dev file-loader
-```
-Configure webpack.config.js:
-```
-{
-  test: /\.(eot|svg|ttf|woff|woff2)$/,
-  loader: 'file-loader?publicPath=bin/'
-}
-```
-Replace public path with your output bundle path.
 
 ## Usage
 ```
@@ -53,10 +41,11 @@ render(
 ## Features
 
 * No dependencies, just React.
+* SVG Icons.
 * Simple API.
 * Animations.
 * Customizable.
-* Support to Create React App
+* Support to Create React App.
 
 ## API:
 
@@ -68,10 +57,3 @@ render(
 | rotate | <code>Boolean</code> | Apply rotate animation to icon | rotate={true} |
 | shake | <code>Boolean</code> | Apply shake animation to icon | shake={true} |
 | beat | <code>Boolean</code> | Apply beat animation to icon | beat={true} |
-
-## TODO:
-- [ ] Shake animation.
-- [ ] Add style props.
-- [ ] Add class props.
-- [x] Github Pages.
-- [x] API DOC.

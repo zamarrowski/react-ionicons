@@ -37,6 +37,7 @@ class Install extends Component {
         <h2>Features</h2>
         <ul>
           <li>No dependencies, just React.</li>
+          <li>SVG Icons</li>
           <li>Simple API.</li>
           <li>Animations.</li>
           <li>Customizable.</li>

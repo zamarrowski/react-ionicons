@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 
 import styles from '../lib/index.css'
-import ionicons from './../ionicons/css/ionicons.min.css'
-
+import icons from './icons.js'
 
 class Ionicon extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {classNames: [this.props.icon], animationActive: false}
+    this.state = {classNames: [], animationActive: false}
     this._getClasses = this._getClasses.bind(this)
   }
 
@@ -26,12 +25,20 @@ class Ionicon extends Component {
     }
 
     return (
-      <i className={this._getClasses()} style={style} />
+      <svg className={this._getClasses()} fill={this.props.color} width={this.props.fontSize} height={this.props.fontSize} viewBox="0 0 1024 1024">
+        <path d={this._getPathByIconName()}></path>
+      </svg>
     )
   }
 
   _getClasses() {
     return [...this.state.classNames].join(' ')
+  }
+
+  _getPathByIconName() {
+    for (let icon of icons) {
+      if (icon.tags[0] == this.props.icon) return icon.paths.join(' ')
+    }
   }
 
   _manageAnimation(animation) {
