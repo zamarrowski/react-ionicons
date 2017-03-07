@@ -8,19 +8,14 @@ class Ionicon extends Component {
 
   constructor(props) {
     super(props)
-
     this.state = {classNames: [this.props.icon], animationActive: false}
-
     this._getClasses = this._getClasses.bind(this)
-    this._manageBeatAnimation = this._manageBeatAnimation.bind(this)
-    this._manageShakeAnimation = this._manageShakeAnimation.bind(this)
-    this._manageRotateAnimation = this._manageRotateAnimation.bind(this)
   }
 
   componentWillMount() {
-      this._manageShakeAnimation()
-      this._manageBeatAnimation()
-      this._manageRotateAnimation()
+    this._manageAnimation('shake')
+    this._manageAnimation('beat')
+    this._manageAnimation('rotate')
   }
 
   render() {
@@ -39,37 +34,13 @@ class Ionicon extends Component {
     return [...this.state.classNames].join(' ')
   }
 
-  _manageBeatAnimation() {
-      if (this.props.beat && !this.state.animationActive) {
-
-          this.setState({
-              ...this.state,
-              animationActive: 'beat',
-              classNames: [...this.state.classNames, 'beat']
-          })
-      }
-  }
-
-  _manageShakeAnimation() {
-    if (this.props.shake && !this.state.animationActive) {
-
+  _manageAnimation(animation) {
+    if (this.props[animation] && !this.state.animationActive) {
       this.setState({
-        ...this.state,
-        animationActive: 'shake',
-        classNames: [...this.state.classNames, 'shake']
+        animationActive: true,
+        classNames: [...this.state.classNames, animation]
       })
     }
-  }
-
-  _manageRotateAnimation() {
-      if (this.props.rotate && !this.state.animationActive) {
-
-          this.setState({
-              ...this.state,
-              animationActive: 'rotate',
-              classNames: [...this.state.classNames, 'rotate']
-          })
-      }
   }
 }
 
