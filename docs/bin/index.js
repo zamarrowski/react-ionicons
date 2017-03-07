@@ -5909,6 +5909,16 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
 var _createClass = function () {
   function defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -5923,16 +5933,26 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ioniconsMin = __webpack_require__(418);
-
-var _ioniconsMin2 = _interopRequireDefault(_ioniconsMin);
-
 var _index = __webpack_require__(419);
 
 var _index2 = _interopRequireDefault(_index);
 
+var _ioniconsMin = __webpack_require__(418);
+
+var _ioniconsMin2 = _interopRequireDefault(_ioniconsMin);
+
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _toConsumableArray(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }return arr2;
+  } else {
+    return Array.from(arr);
+  }
 }
 
 function _classCallCheck(instance, Constructor) {
@@ -5959,35 +5979,100 @@ var Ionicon = function (_Component) {
   function Ionicon(props) {
     _classCallCheck(this, Ionicon);
 
-    return _possibleConstructorReturn(this, (Ionicon.__proto__ || Object.getPrototypeOf(Ionicon)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Ionicon.__proto__ || Object.getPrototypeOf(Ionicon)).call(this, props));
+
+    _this.state = { classNames: [_this.props.icon], animationActive: false };
+
+    _this._getClasses = _this._getClasses.bind(_this);
+    _this._manageBeatAnimation = _this._manageBeatAnimation.bind(_this);
+    _this._manageShakeAnimation = _this._manageShakeAnimation.bind(_this);
+    _this._manageRotateAnimation = _this._manageRotateAnimation.bind(_this);
+    return _this;
   }
 
   _createClass(Ionicon, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this._manageShakeAnimation();
+      this._manageBeatAnimation();
+      this._manageRotateAnimation();
+    }
+  }, {
     key: 'render',
     value: function render() {
-
-      var style = {
-        fontSize: this.props.fontSize,
-        color: this.props.color
-      };
-
-      return _react2.default.createElement('i', {
-        className: this._getClasses(),
-        style: style
+      var style = _extends({}, this.props.style, {
+        color: this.props.color,
+        fontSize: this.props.fontSize
       });
+
+      return _react2.default.createElement('i', { className: this._getClasses(), style: style });
     }
   }, {
     key: '_getClasses',
     value: function _getClasses() {
-      var classNames = [this.props.icon];
-      if (this.props.rotate) classNames.push('rotate');
-      if (this.props.shake) classNames.push('shake');
-      return classNames.join(' ');
+      return [].concat(_toConsumableArray(this.state.classNames)).join(' ');
+    }
+  }, {
+    key: '_manageBeatAnimation',
+    value: function _manageBeatAnimation() {
+      if (this.props.beat && !this.state.animationActive) {
+
+        this.setState(_extends({}, this.state, {
+          animationActive: 'beat',
+          classNames: [].concat(_toConsumableArray(this.state.classNames), ['beat'])
+        }));
+      }
+    }
+  }, {
+    key: '_manageShakeAnimation',
+    value: function _manageShakeAnimation() {
+      if (this.props.shake && !this.state.animationActive) {
+
+        this.setState(_extends({}, this.state, {
+          animationActive: 'shake',
+          classNames: [].concat(_toConsumableArray(this.state.classNames), ['shake'])
+        }));
+      }
+    }
+  }, {
+    key: '_manageRotateAnimation',
+    value: function _manageRotateAnimation() {
+      if (this.props.rotate && !this.state.animationActive) {
+
+        this.setState(_extends({}, this.state, {
+          animationActive: 'rotate',
+          classNames: [].concat(_toConsumableArray(this.state.classNames), ['rotate'])
+        }));
+      }
     }
   }]);
 
   return Ionicon;
 }(_react.Component);
+
+Ionicon.defaultProps = {
+  // style
+  style: {},
+  color: '#000000',
+  fontSize: '22px',
+
+  // animation
+  shake: false,
+  beat: false,
+  rotate: false
+};
+
+Ionicon.propTypes = {
+  // style
+  style: _react2.default.PropTypes.object,
+  color: _react2.default.PropTypes.string,
+  fontSize: _react2.default.PropTypes.string,
+
+  // animation
+  shake: _react2.default.PropTypes.bool,
+  beat: _react2.default.PropTypes.bool,
+  rotate: _react2.default.PropTypes.bool
+};
 
 exports.default = Ionicon;
 module.exports = exports['default'];
@@ -12619,6 +12704,11 @@ var Api = function (_Component) {
     key: 'render',
     value: function render() {
       var apiMethods = [{
+        param: 'style',
+        type: 'Object',
+        description: 'Style to apply',
+        example: 'icon={...your.style}'
+      }, {
         param: 'icon',
         type: 'String',
         description: 'Icon of ionicons.',
@@ -12643,6 +12733,11 @@ var Api = function (_Component) {
         type: 'Boolean',
         description: 'Apply shake animation to icon',
         example: 'shake={true}'
+      }, {
+        param: 'beat',
+        type: 'Boolean',
+        description: 'Apply beat animation to icon',
+        example: 'beat={true}'
       }];
       return _react2.default.createElement(
         'div',
@@ -12772,11 +12867,11 @@ var Examples = function (_Component) {
   _createClass(Examples, [{
     key: 'render',
     value: function render() {
-      var nodejsExample = '<Ionicon icon="ion-social-nodejs" fontSize="60px" color="#43853d"></Ionicon>';
-      var loadExample = '<Ionicon icon="ion-load-c" fontSize="60px" color="#347eff" rotate={true}></Ionicon>';
-      var loadLoopExample = '<Ionicon icon="ion-ios-loop-strong" fontSize="60px" rotate={true}></Ionicon>';
-      var heartExample = '<Ionicon icon="ion-heart" fontSize="60px" color="red"></Ionicon>';
-      var bellExample = '<Ionicon icon="ion-ios-bell" shake={true} fontSize="60px" color="orange"></Ionicon>';
+      var nodejsExample = '<Ionicon icon="ion-social-nodejs" fontSize="60px" color="#43853d" />';
+      var loadExample = '<Ionicon icon="ion-load-c" fontSize="60px" color="#347eff" rotate={true} />';
+      var loadLoopExample = '<Ionicon icon="ion-ios-loop-strong" fontSize="60px" rotate={true} />';
+      var heartExample = '<Ionicon icon="ion-heart" fontSize="60px" color="red" beat={true} />';
+      var bellExample = '<Ionicon icon="ion-ios-bell" shake={true} fontSize="60px" color="orange" />';
       return _react2.default.createElement(
         'div',
         { className: 'examples' },
@@ -12821,7 +12916,7 @@ var Examples = function (_Component) {
           _react2.default.createElement(
             _Paper2.default,
             { className: 'example', zDepth: 2 },
-            _react2.default.createElement(_reactIonicons2.default, { icon: 'ion-heart', fontSize: '60px', color: 'red' }),
+            _react2.default.createElement(_reactIonicons2.default, { icon: 'ion-heart', fontSize: '60px', color: 'red', beat: true }),
             _react2.default.createElement(
               'pre',
               null,
@@ -37102,7 +37197,7 @@ exports = module.exports = __webpack_require__(35)();
 
 
 // module
-exports.push([module.i, "/* Rotate animation */\n.rotate:before {\n  -webkit-animation: rotateIcon 2s linear infinite;\n  -moz-animation: rotateIcon 2s linear infinite;\n  animation: rotateIcon 2s linear infinite;\n}\n\n@keyframes rotateIcon {\n  100% {\n    transform: rotate(360deg)\n  }\n}\n\n@-webkit-keyframes rotateIcon {\n  100% {\n    transform: rotate(360deg)\n  }\n}\n\n@-moz-keyframes rotateIcon {\n  100% {\n    transform: rotate(360deg)\n  }\n}\n\n/* Shake animation */\n.shake:before {\n  -webkit-animation: shakeIcon 0.82s linear infinite;\n  -moz-animation: shakeIcon 0.82s linear infinite;\n  animation: shakeIcon 0.82s linear infinite;\n}\n\n@keyframes shakeIcon {\n  10%, 90% {\n    transform: translate3d(-1px, 0, 0);\n  }\n\n  20%, 80% {\n    transform: translate3d(2px, 0, 0);\n  }\n\n  30%, 50%, 70% {\n    transform: translate3d(-4px, 0, 0);\n  }\n\n  40%, 60% {\n    transform: translate3d(4px, 0, 0);\n  }\n}\n\n@-webkit-keyframes shakeIcon {\n  10%, 90% {\n    transform: translate3d(-1px, 0, 0);\n  }\n\n  20%, 80% {\n    transform: translate3d(2px, 0, 0);\n  }\n\n  30%, 50%, 70% {\n    transform: translate3d(-4px, 0, 0);\n  }\n\n  40%, 60% {\n    transform: translate3d(4px, 0, 0);\n  }\n}\n\n@-moz-keyframes shakeIcon {\n  10%, 90% {\n    transform: translate3d(-1px, 0, 0);\n  }\n\n  20%, 80% {\n    transform: translate3d(2px, 0, 0);\n  }\n\n  30%, 50%, 70% {\n    transform: translate3d(-4px, 0, 0);\n  }\n\n  40%, 60% {\n    transform: translate3d(4px, 0, 0);\n  }\n}\n", ""]);
+exports.push([module.i, "/* Rotate animation */\n.rotate:before {\n  -webkit-animation: rotateIcon 2s linear infinite;\n  -moz-animation: rotateIcon 2s linear infinite;\n  animation: rotateIcon 2s linear infinite;\n}\n\n@keyframes rotateIcon {\n  100% {\n    transform: rotate(360deg)\n  }\n}\n\n@-webkit-keyframes rotateIcon {\n  100% {\n    transform: rotate(360deg)\n  }\n}\n\n@-moz-keyframes rotateIcon {\n  100% {\n    transform: rotate(360deg)\n  }\n}\n\n/* Shake animation */\n.shake:before {\n  -webkit-animation: shakeIcon 0.82s linear infinite;\n  -moz-animation: shakeIcon 0.82s linear infinite;\n  animation: shakeIcon 0.82s linear infinite;\n}\n\n@keyframes shakeIcon {\n  10%, 90% {\n    transform: translate3d(-1px, 0, 0);\n  }\n\n  20%, 80% {\n    transform: translate3d(2px, 0, 0);\n  }\n\n  30%, 50%, 70% {\n    transform: translate3d(-4px, 0, 0);\n  }\n\n  40%, 60% {\n    transform: translate3d(4px, 0, 0);\n  }\n}\n\n@-webkit-keyframes shakeIcon {\n  10%, 90% {\n    transform: translate3d(-1px, 0, 0);\n  }\n\n  20%, 80% {\n    transform: translate3d(2px, 0, 0);\n  }\n\n  30%, 50%, 70% {\n    transform: translate3d(-4px, 0, 0);\n  }\n\n  40%, 60% {\n    transform: translate3d(4px, 0, 0);\n  }\n}\n\n@-moz-keyframes shakeIcon {\n  10%, 90% {\n    transform: translate3d(-1px, 0, 0);\n  }\n\n  20%, 80% {\n    transform: translate3d(2px, 0, 0);\n  }\n\n  30%, 50%, 70% {\n    transform: translate3d(-4px, 0, 0);\n  }\n\n  40%, 60% {\n    transform: translate3d(4px, 0, 0);\n  }\n}\n\n/* Beat animation */\n.beat:before {\n  -webkit-animation: beatIcon 0.82s linear infinite;\n  -moz-animation: beatIcon 0.82s linear infinite;\n  animation: beatIcon 0.82s linear infinite;\n}\n@keyframes beatIcon\n{\n  0% {\n    transform: scale(.75);\n  }\n\n  20% {\n    transform: scale(1);\n  }\n\n  40% {\n    transform: scale(.75);\n  }\n\n  60% {\n    transform: scale(1);\n  }\n\n  80% {\n    transform: scale(.75);\n  }\n\n  100% {\n    transform: scale(.75);\n  }\n}\n\n@-webkit-keyframes beatIcon\n{\n  0% {\n    transform: scale(.75);\n  }\n\n  20% {\n    transform: scale(1);\n  }\n\n  40% {\n    transform: scale(.75);\n  }\n\n  60% {\n    transform: scale(1);\n  }\n\n  80% {\n    transform: scale(.75);\n  }\n\n  100% {\n    transform: scale(.75);\n  }\n}\n\n@-moz-keyframes beatIcon\n{\n  0% {\n    transform: scale(.75);\n  }\n\n  20% {\n    transform: scale(1);\n  }\n\n  40% {\n    transform: scale(.75);\n  }\n\n  60% {\n    transform: scale(1);\n  }\n\n  80% {\n    transform: scale(.75);\n  }\n\n  100% {\n    transform: scale(.75);\n  }\n}", ""]);
 
 // exports
 
