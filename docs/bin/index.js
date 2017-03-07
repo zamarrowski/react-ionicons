@@ -68,7 +68,10 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -392,7 +395,7 @@ module.exports = warning;
 "use strict";
 
 
-module.exports = __webpack_require__(36);
+module.exports = __webpack_require__(37);
 
 /***/ }),
 /* 4 */
@@ -1476,7 +1479,7 @@ var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
 var CallbackQueue = __webpack_require__(137);
-var PooledClass = __webpack_require__(35);
+var PooledClass = __webpack_require__(36);
 var ReactFeatureFlags = __webpack_require__(142);
 var ReactReconciler = __webpack_require__(47);
 var Transaction = __webpack_require__(65);
@@ -1785,7 +1788,7 @@ module.exports = exports["default"];
 
 var _assign = __webpack_require__(5);
 
-var PooledClass = __webpack_require__(35);
+var PooledClass = __webpack_require__(36);
 
 var emptyFunction = __webpack_require__(15);
 var warning = __webpack_require__(2);
@@ -2803,6 +2806,62 @@ module.exports = function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function () {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		var result = [];
+		for (var i = 0; i < this.length; i++) {
+			var item = this[i];
+			if (item[2]) {
+				result.push("@media " + item[2] + "{" + item[1] + "}");
+			} else {
+				result.push(item[1]);
+			}
+		}
+		return result.join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function (modules, mediaQuery) {
+		if (typeof modules === "string") modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for (var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if (typeof id === "number") alreadyImportedModules[id] = true;
+		}
+		for (i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if (typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if (mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if (mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -2917,7 +2976,7 @@ module.exports = PooledClass;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3010,62 +3069,6 @@ var React = {
 
 module.exports = React;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function () {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		var result = [];
-		for (var i = 0; i < this.length; i++) {
-			var item = this[i];
-			if (item[2]) {
-				result.push("@media " + item[2] + "{" + item[1] + "}");
-			} else {
-				result.push(item[1]);
-			}
-		}
-		return result.join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function (modules, mediaQuery) {
-		if (typeof modules === "string") modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for (var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if (typeof id === "number") alreadyImportedModules[id] = true;
-		}
-		for (i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if (typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if (mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if (mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
 
 /***/ }),
 /* 38 */
@@ -5906,6 +5909,16 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
 var _createClass = function () {
   function defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -5920,16 +5933,26 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ioniconsMin = __webpack_require__(418);
-
-var _ioniconsMin2 = _interopRequireDefault(_ioniconsMin);
-
 var _index = __webpack_require__(419);
 
 var _index2 = _interopRequireDefault(_index);
 
+var _ioniconsMin = __webpack_require__(418);
+
+var _ioniconsMin2 = _interopRequireDefault(_ioniconsMin);
+
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _toConsumableArray(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }return arr2;
+  } else {
+    return Array.from(arr);
+  }
 }
 
 function _classCallCheck(instance, Constructor) {
@@ -5956,35 +5979,100 @@ var Ionicon = function (_Component) {
   function Ionicon(props) {
     _classCallCheck(this, Ionicon);
 
-    return _possibleConstructorReturn(this, (Ionicon.__proto__ || Object.getPrototypeOf(Ionicon)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Ionicon.__proto__ || Object.getPrototypeOf(Ionicon)).call(this, props));
+
+    _this.state = { classNames: [_this.props.icon], animationActive: false };
+
+    _this._getClasses = _this._getClasses.bind(_this);
+    _this._manageBeatAnimation = _this._manageBeatAnimation.bind(_this);
+    _this._manageShakeAnimation = _this._manageShakeAnimation.bind(_this);
+    _this._manageRotateAnimation = _this._manageRotateAnimation.bind(_this);
+    return _this;
   }
 
   _createClass(Ionicon, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this._manageShakeAnimation();
+      this._manageBeatAnimation();
+      this._manageRotateAnimation();
+    }
+  }, {
     key: 'render',
     value: function render() {
-
-      var style = {
-        fontSize: this.props.fontSize,
-        color: this.props.color
-      };
-
-      return _react2.default.createElement('i', {
-        className: this._getClasses(),
-        style: style
+      var style = _extends({}, this.props.style, {
+        color: this.props.color,
+        fontSize: this.props.fontSize
       });
+
+      return _react2.default.createElement('i', { className: this._getClasses(), style: style });
     }
   }, {
     key: '_getClasses',
     value: function _getClasses() {
-      var classNames = [this.props.icon];
-      if (this.props.rotate) classNames.push('rotate');
-      if (this.props.shake) classNames.push('shake');
-      return classNames.join(' ');
+      return [].concat(_toConsumableArray(this.state.classNames)).join(' ');
+    }
+  }, {
+    key: '_manageBeatAnimation',
+    value: function _manageBeatAnimation() {
+      if (this.props.beat && !this.state.animationActive) {
+
+        this.setState(_extends({}, this.state, {
+          animationActive: 'beat',
+          classNames: [].concat(_toConsumableArray(this.state.classNames), ['beat'])
+        }));
+      }
+    }
+  }, {
+    key: '_manageShakeAnimation',
+    value: function _manageShakeAnimation() {
+      if (this.props.shake && !this.state.animationActive) {
+
+        this.setState(_extends({}, this.state, {
+          animationActive: 'shake',
+          classNames: [].concat(_toConsumableArray(this.state.classNames), ['shake'])
+        }));
+      }
+    }
+  }, {
+    key: '_manageRotateAnimation',
+    value: function _manageRotateAnimation() {
+      if (this.props.rotate && !this.state.animationActive) {
+
+        this.setState(_extends({}, this.state, {
+          animationActive: 'rotate',
+          classNames: [].concat(_toConsumableArray(this.state.classNames), ['rotate'])
+        }));
+      }
     }
   }]);
 
   return Ionicon;
 }(_react.Component);
+
+Ionicon.defaultProps = {
+  // style
+  style: {},
+  color: '#000000',
+  fontSize: '22px',
+
+  // animation
+  shake: false,
+  beat: false,
+  rotate: false
+};
+
+Ionicon.propTypes = {
+  // style
+  style: _react2.default.PropTypes.object,
+  color: _react2.default.PropTypes.string,
+  fontSize: _react2.default.PropTypes.string,
+
+  // animation
+  shake: _react2.default.PropTypes.bool,
+  beat: _react2.default.PropTypes.bool,
+  rotate: _react2.default.PropTypes.bool
+};
 
 exports.default = Ionicon;
 module.exports = exports['default'];
@@ -7002,7 +7090,7 @@ module.exports = KeyEscapeUtils;
 
 var _prodInvariant = __webpack_require__(4);
 
-var React = __webpack_require__(36);
+var React = __webpack_require__(37);
 var ReactPropTypesSecret = __webpack_require__(147);
 
 var invariant = __webpack_require__(1);
@@ -9614,7 +9702,7 @@ function _classCallCheck(instance, Constructor) {
   }
 }
 
-var PooledClass = __webpack_require__(35);
+var PooledClass = __webpack_require__(36);
 
 var invariant = __webpack_require__(1);
 
@@ -10471,7 +10559,7 @@ var _prodInvariant = __webpack_require__(4);
 
 var DOMLazyTree = __webpack_require__(44);
 var DOMProperty = __webpack_require__(29);
-var React = __webpack_require__(36);
+var React = __webpack_require__(37);
 var ReactBrowserEventEmitter = __webpack_require__(63);
 var ReactCurrentOwner = __webpack_require__(23);
 var ReactDOMComponentTree = __webpack_require__(6);
@@ -11014,7 +11102,7 @@ module.exports = ReactMount;
 
 var _prodInvariant = __webpack_require__(4);
 
-var React = __webpack_require__(36);
+var React = __webpack_require__(37);
 
 var invariant = __webpack_require__(1);
 
@@ -12616,6 +12704,11 @@ var Api = function (_Component) {
     key: 'render',
     value: function render() {
       var apiMethods = [{
+        param: 'style',
+        type: 'Object',
+        description: 'Style to apply',
+        example: 'icon={...your.style}'
+      }, {
         param: 'icon',
         type: 'String',
         description: 'Icon of ionicons.',
@@ -12640,6 +12733,11 @@ var Api = function (_Component) {
         type: 'Boolean',
         description: 'Apply shake animation to icon',
         example: 'shake={true}'
+      }, {
+        param: 'beat',
+        type: 'Boolean',
+        description: 'Apply beat animation to icon',
+        example: 'beat={true}'
       }];
       return _react2.default.createElement(
         'div',
@@ -12769,11 +12867,11 @@ var Examples = function (_Component) {
   _createClass(Examples, [{
     key: 'render',
     value: function render() {
-      var nodejsExample = '<Ionicon icon="ion-social-nodejs" fontSize="60px" color="#43853d"></Ionicon>';
-      var loadExample = '<Ionicon icon="ion-load-c" fontSize="60px" color="#347eff" rotate={true}></Ionicon>';
-      var loadLoopExample = '<Ionicon icon="ion-ios-loop-strong" fontSize="60px" rotate={true}></Ionicon>';
-      var heartExample = '<Ionicon icon="ion-heart" fontSize="60px" color="red"></Ionicon>';
-      var bellExample = '<Ionicon icon="ion-ios-bell" shake={true} fontSize="60px" color="orange"></Ionicon>';
+      var nodejsExample = '<Ionicon icon="ion-social-nodejs" fontSize="60px" color="#43853d" />';
+      var loadExample = '<Ionicon icon="ion-load-c" fontSize="60px" color="#347eff" rotate={true} />';
+      var loadLoopExample = '<Ionicon icon="ion-ios-loop-strong" fontSize="60px" rotate={true} />';
+      var heartExample = '<Ionicon icon="ion-heart" fontSize="60px" color="red" beat={true} />';
+      var bellExample = '<Ionicon icon="ion-ios-bell" shake={true} fontSize="60px" color="orange" />';
       return _react2.default.createElement(
         'div',
         { className: 'examples' },
@@ -12818,7 +12916,7 @@ var Examples = function (_Component) {
           _react2.default.createElement(
             _Paper2.default,
             { className: 'example', zDepth: 2 },
-            _react2.default.createElement(_reactIonicons2.default, { icon: 'ion-heart', fontSize: '60px', color: 'red' }),
+            _react2.default.createElement(_reactIonicons2.default, { icon: 'ion-heart', fontSize: '60px', color: 'red', beat: true }),
             _react2.default.createElement(
               'pre',
               null,
@@ -25760,7 +25858,7 @@ module.exports = EventConstants;
 
 var _assign = __webpack_require__(5);
 
-var PooledClass = __webpack_require__(35);
+var PooledClass = __webpack_require__(36);
 
 var getTextContentAccessor = __webpack_require__(151);
 
@@ -26275,7 +26373,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var React = __webpack_require__(36);
+var React = __webpack_require__(37);
 var ReactComponentEnvironment = __webpack_require__(95);
 var ReactCurrentOwner = __webpack_require__(23);
 var ReactErrorUtils = __webpack_require__(96);
@@ -28907,7 +29005,7 @@ module.exports = ReactDOMNullInputValuePropHook;
 
 var _assign = __webpack_require__(5);
 
-var React = __webpack_require__(36);
+var React = __webpack_require__(37);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMSelect = __webpack_require__(140);
 
@@ -30447,7 +30545,7 @@ var _assign = __webpack_require__(5);
 
 var EventListener = __webpack_require__(127);
 var ExecutionEnvironment = __webpack_require__(8);
-var PooledClass = __webpack_require__(35);
+var PooledClass = __webpack_require__(36);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(22);
 
@@ -31369,7 +31467,7 @@ module.exports = ReactPropTypeLocationNames;
 var _assign = __webpack_require__(5);
 
 var CallbackQueue = __webpack_require__(137);
-var PooledClass = __webpack_require__(35);
+var PooledClass = __webpack_require__(36);
 var ReactBrowserEventEmitter = __webpack_require__(63);
 var ReactInputSelection = __webpack_require__(144);
 var ReactInstrumentation = __webpack_require__(20);
@@ -31648,7 +31746,7 @@ module.exports = ReactRef;
 
 var _assign = __webpack_require__(5);
 
-var PooledClass = __webpack_require__(35);
+var PooledClass = __webpack_require__(36);
 var Transaction = __webpack_require__(65);
 var ReactInstrumentation = __webpack_require__(20);
 var ReactServerUpdateQueue = __webpack_require__(346);
@@ -36173,7 +36271,7 @@ function _inherits(subClass, superClass) {
   }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
-var React = __webpack_require__(36);
+var React = __webpack_require__(37);
 var ReactTransitionChildMapping = __webpack_require__(385);
 
 var emptyFunction = __webpack_require__(15);
@@ -36948,7 +37046,12 @@ exports.default = wrapDisplayName;
 
 /***/ }),
 /* 401 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var g;
 
@@ -36962,7 +37065,7 @@ try {
 	g = g || Function("return this")() || (1, eval)("this");
 } catch (e) {
 	// This works if the window reference is available
-	if (typeof window === "object") g = window;
+	if ((typeof window === "undefined" ? "undefined" : _typeof(window)) === "object") g = window;
 }
 
 // g can still be undefined, but nothing to do about it...
@@ -36973,7 +37076,10 @@ module.exports = g;
 
 /***/ }),
 /* 402 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 module.exports = function (module) {
 	if (!module.webpackPolyfill) {
@@ -36983,13 +37089,13 @@ module.exports = function (module) {
 		if (!module.children) module.children = [];
 		Object.defineProperty(module, "loaded", {
 			enumerable: true,
-			get: function () {
+			get: function get() {
 				return module.l;
 			}
 		});
 		Object.defineProperty(module, "id", {
 			enumerable: true,
-			get: function () {
+			get: function get() {
 				return module.i;
 			}
 		});
@@ -37002,7 +37108,7 @@ module.exports = function (module) {
 /* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(35)();
 // imports
 
 
@@ -37016,7 +37122,7 @@ exports.push([module.i, ".api {\n  padding: 20px;\n}\n\n.api table {\n  display:
 /* 404 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(35)();
 // imports
 
 
@@ -37030,7 +37136,7 @@ exports.push([module.i, ".examples {\n  padding: 20px\n}\n\n.examplesContainer {
 /* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(35)();
 // imports
 
 
@@ -37044,7 +37150,7 @@ exports.push([module.i, ".iconsContainerSection {\n  padding: 20px;\n}\n\n.icons
 /* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(35)();
 // imports
 
 
@@ -37058,7 +37164,7 @@ exports.push([module.i, ".install {\n  padding: 20px;\n}\n\nh2 {\n  padding-bott
 /* 407 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(35)();
 // imports
 
 
@@ -37072,7 +37178,7 @@ exports.push([module.i, ".jumbo {\n  height: 280px;\n  width: 100%;\n  backgroun
 /* 408 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(35)();
 // imports
 
 
@@ -37086,12 +37192,12 @@ exports.push([module.i, "@charset \"UTF-8\";/*!\n  Ionicons, v2.0.0\n  Created b
 /* 409 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(37)();
+exports = module.exports = __webpack_require__(35)();
 // imports
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "/* Rotate animation */\n.rotate:before {\n  -webkit-animation: rotateIcon 2s linear infinite;\n  -moz-animation: rotateIcon 2s linear infinite;\n  animation: rotateIcon 2s linear infinite;\n}\n\n@keyframes rotateIcon {\n  100% {\n    transform: rotate(360deg)\n  }\n}\n\n@-webkit-keyframes rotateIcon {\n  100% {\n    transform: rotate(360deg)\n  }\n}\n\n@-moz-keyframes rotateIcon {\n  100% {\n    transform: rotate(360deg)\n  }\n}\n\n/* Shake animation */\n.shake:before {\n  -webkit-animation: shakeIcon 0.82s linear infinite;\n  -moz-animation: shakeIcon 0.82s linear infinite;\n  animation: shakeIcon 0.82s linear infinite;\n}\n\n@keyframes shakeIcon {\n  10%, 90% {\n    transform: translate3d(-1px, 0, 0);\n  }\n\n  20%, 80% {\n    transform: translate3d(2px, 0, 0);\n  }\n\n  30%, 50%, 70% {\n    transform: translate3d(-4px, 0, 0);\n  }\n\n  40%, 60% {\n    transform: translate3d(4px, 0, 0);\n  }\n}\n\n@-webkit-keyframes shakeIcon {\n  10%, 90% {\n    transform: translate3d(-1px, 0, 0);\n  }\n\n  20%, 80% {\n    transform: translate3d(2px, 0, 0);\n  }\n\n  30%, 50%, 70% {\n    transform: translate3d(-4px, 0, 0);\n  }\n\n  40%, 60% {\n    transform: translate3d(4px, 0, 0);\n  }\n}\n\n@-moz-keyframes shakeIcon {\n  10%, 90% {\n    transform: translate3d(-1px, 0, 0);\n  }\n\n  20%, 80% {\n    transform: translate3d(2px, 0, 0);\n  }\n\n  30%, 50%, 70% {\n    transform: translate3d(-4px, 0, 0);\n  }\n\n  40%, 60% {\n    transform: translate3d(4px, 0, 0);\n  }\n}\n\n/* Beat animation */\n.beat:before {\n  -webkit-animation: beatIcon 0.82s linear infinite;\n  -moz-animation: beatIcon 0.82s linear infinite;\n  animation: beatIcon 0.82s linear infinite;\n}\n@keyframes beatIcon\n{\n  0% {\n    transform: scale(.75);\n  }\n\n  20% {\n    transform: scale(1);\n  }\n\n  40% {\n    transform: scale(.75);\n  }\n\n  60% {\n    transform: scale(1);\n  }\n\n  80% {\n    transform: scale(.75);\n  }\n\n  100% {\n    transform: scale(.75);\n  }\n}\n\n@-webkit-keyframes beatIcon\n{\n  0% {\n    transform: scale(.75);\n  }\n\n  20% {\n    transform: scale(1);\n  }\n\n  40% {\n    transform: scale(.75);\n  }\n\n  60% {\n    transform: scale(1);\n  }\n\n  80% {\n    transform: scale(.75);\n  }\n\n  100% {\n    transform: scale(.75);\n  }\n}\n\n@-moz-keyframes beatIcon\n{\n  0% {\n    transform: scale(.75);\n  }\n\n  20% {\n    transform: scale(1);\n  }\n\n  40% {\n    transform: scale(.75);\n  }\n\n  60% {\n    transform: scale(1);\n  }\n\n  80% {\n    transform: scale(.75);\n  }\n\n  100% {\n    transform: scale(.75);\n  }\n}", ""]);
 
 // exports
 
@@ -37130,8 +37236,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./api.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./api.css");
+		module.hot.accept("!!./node_modules/css-loader/index.js!./api.css", function() {
+			var newContent = require("!!./node_modules/css-loader/index.js!./api.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -37156,8 +37262,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./examples.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./examples.css");
+		module.hot.accept("!!./node_modules/css-loader/index.js!./examples.css", function() {
+			var newContent = require("!!./node_modules/css-loader/index.js!./examples.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -37182,8 +37288,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./iconsContainer.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./iconsContainer.css");
+		module.hot.accept("!!./node_modules/css-loader/index.js!./iconsContainer.css", function() {
+			var newContent = require("!!./node_modules/css-loader/index.js!./iconsContainer.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -37208,8 +37314,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./install.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./install.css");
+		module.hot.accept("!!./node_modules/css-loader/index.js!./install.css", function() {
+			var newContent = require("!!./node_modules/css-loader/index.js!./install.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -37234,8 +37340,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./jumbo.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./jumbo.css");
+		module.hot.accept("!!./node_modules/css-loader/index.js!./jumbo.css", function() {
+			var newContent = require("!!./node_modules/css-loader/index.js!./jumbo.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -37260,8 +37366,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../../node_modules/css-loader/index.js!./ionicons.min.css", function() {
-			var newContent = require("!!../../../../../node_modules/css-loader/index.js!./ionicons.min.css");
+		module.hot.accept("!!../../../css-loader/index.js!./ionicons.min.css", function() {
+			var newContent = require("!!../../../css-loader/index.js!./ionicons.min.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -37286,8 +37392,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/css-loader/index.js!./index.css", function() {
-			var newContent = require("!!../../../../node_modules/css-loader/index.js!./index.css");
+		module.hot.accept("!!../../css-loader/index.js!./index.css", function() {
+			var newContent = require("!!../../css-loader/index.js!./index.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
