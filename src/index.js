@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import styles from '../lib/index.css';
-import ionicons from './../ionicons/css/ionicons.min.css';
+import styles from '../lib/index.css'
+import ionicons from './../ionicons/css/ionicons.min.css'
 
 
 class Ionicon extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = {classNames: [this.props.icon], animationActive: false};
+    this.state = {classNames: [this.props.icon], animationActive: false}
 
-    this._getClasses = this._getClasses.bind(this);
-    this._manageBeatAnimation = this._manageBeatAnimation.bind(this);
-    this._manageShakeAnimation = this._manageShakeAnimation.bind(this);
-    this._manageRotateAnimation = this._manageRotateAnimation.bind(this);
+    this._getClasses = this._getClasses.bind(this)
+    this._manageBeatAnimation = this._manageBeatAnimation.bind(this)
+    this._manageShakeAnimation = this._manageShakeAnimation.bind(this)
+    this._manageRotateAnimation = this._manageRotateAnimation.bind(this)
   }
 
   componentWillMount() {
-      this._manageShakeAnimation();
-      this._manageBeatAnimation();
-      this._manageRotateAnimation();
+      this._manageShakeAnimation()
+      this._manageBeatAnimation()
+      this._manageRotateAnimation()
   }
 
   render() {
@@ -28,7 +28,7 @@ class Ionicon extends Component {
       ...this.props.style,
       color: this.props.color,
       fontSize: this.props.fontSize,
-    };
+    }
 
     return (
       <i className={this._getClasses()} style={style} />
@@ -36,7 +36,7 @@ class Ionicon extends Component {
   }
 
   _getClasses() {
-    return [...this.state.classNames].join(' ');
+    return [...this.state.classNames].join(' ')
   }
 
   _manageBeatAnimation() {
@@ -84,7 +84,7 @@ Ionicon.defaultProps = {
   shake: false,
   beat: false,
   rotate: false,
-};
+}
 
 
 Ionicon.propTypes = {
@@ -97,7 +97,7 @@ Ionicon.propTypes = {
   shake: React.PropTypes.bool,
   beat: React.PropTypes.bool,
   rotate: React.PropTypes.bool
-};
+}
 
 
 export default Ionicon
