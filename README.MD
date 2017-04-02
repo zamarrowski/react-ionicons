@@ -17,11 +17,11 @@ import { render } from 'react-dom'
 import Ionicon from 'react-ionicons'
 
 render(
-  <Ionicon icon="ion-home" fontSize="35px" color="red"></Ionicon>
-  <Ionicon icon="ion-cloud" rotate={true} fontSize="35px" color="blue"></Ionicon>
-  <Ionicon icon="ion-cloud" fontSize="35px" color="#C9C9C9"></Ionicon>
-  <Ionicon icon="ion-cloud" fontSize="35px" color="rgb(125, 176, 24)"></Ionicon>
-  <Ionicon icon="ion-refresh" rotate={true} fontSize="35px" color="rgb(125, 176, 24)"></Ionicon>
+  <Ionicon icon="ion-home" fontSize="35px" color="red"/>
+  <Ionicon icon="ion-cloud" rotate={true} fontSize="35px" color="blue"/>
+  <Ionicon icon="ion-cloud" fontSize="35px" color="#C9C9C9"/>
+  <Ionicon icon="ion-cloud" fontSize="35px" color="rgb(125, 176, 24)"/>
+  <Ionicon icon="ion-refresh" rotate={true} fontSize="35px" color="rgb(125, 176, 24)"/>
 , document.getElementById('container'))
 ```
 
