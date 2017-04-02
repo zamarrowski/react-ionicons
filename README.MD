@@ -10,19 +10,6 @@ View page: https://zamarrowski.github.io/react-ionicons/
 npm install --save react-ionicons
 ```
 
-## Configure webpack:
-You need install css-loader and style-loader:
-```
-npm install --save-dev css-loader style-loader
-```
-Configure webpack.config.js:
-```
-{
-  test: /\.css$/,
-  loader: 'style-loader!css-loader'
-}
-```
-
 ## Usage
 ```
 import React from 'react'
