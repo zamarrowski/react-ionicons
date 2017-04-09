@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import styles from '../lib/index.css'
 import icons from './icons.js'
@@ -67,14 +68,14 @@ Ionicon.defaultProps = {
 
 Ionicon.propTypes = {
   // style
-  style: React.PropTypes.object,
-  color: React.PropTypes.string,
-  fontSize: React.PropTypes.string,
+  style: PropTypes.object,
+  color: PropTypes.string,
+  fontSize: PropTypes.string,
 
   // animation
-  shake: React.PropTypes.bool,
-  beat: React.PropTypes.bool,
-  rotate: React.PropTypes.bool
+  shake: PropTypes.bool,
+  beat: PropTypes.bool,
+  rotate: PropTypes.bool
 }
 
 
