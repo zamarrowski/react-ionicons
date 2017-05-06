@@ -39,6 +39,7 @@ render(
 | Param | Type | Description | Example |
 | --- | --- | --- | --- |
 | icon | <code>String</code> | Icon of ionicons. See http://ionicons.com/. | icon="ion-home" |
+| className | <code>String</code> | Name of a CSS class | className="myClass" | 
 | fontSize | <code>String</code> | Icon size. Allow all units (px, em, %, pt...). | fontSize="35px" |
 | color | <code>String</code> | Icon color. Allow string (blue, red, cyan...), rgb, rgba and hexadecimal colors. | color="#C9C9C9" |
 | rotate | <code>Boolean</code> | Apply rotate animation to icon | rotate={true} |

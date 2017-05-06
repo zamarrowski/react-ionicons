@@ -6418,7 +6418,7 @@ var Ionicon = function (_Component) {
   }, {
     key: '_getClasses',
     value: function _getClasses() {
-      return [].concat(_toConsumableArray(this.state.classNames)).join(' ');
+      return [].concat(_toConsumableArray(this.state.classNames), [this.props.className]).join(' ');
     }
   }, {
     key: '_getPathByIconName',
@@ -14705,6 +14705,16 @@ var Examples = function (_Component) {
             _Paper2.default,
             { className: 'example', zDepth: 2 },
             _react2.default.createElement(_reactIonicons2.default, { icon: 'ion-ios-bell', shake: true, fontSize: '60px', color: 'orange' }),
+            _react2.default.createElement(
+              'pre',
+              null,
+              bellExample
+            )
+          ),
+          _react2.default.createElement(
+            _Paper2.default,
+            { className: 'example', zDepth: 2 },
+            _react2.default.createElement(_reactIonicons2.default, { icon: 'ion-ios-telephone', rotate: true, className: 'myClass', fontSize: '60px' }),
             _react2.default.createElement(
               'pre',
               null,
