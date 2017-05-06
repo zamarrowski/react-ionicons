@@ -33,7 +33,7 @@ class Ionicon extends Component {
   }
 
   _getClasses() {
-    return [...this.state.classNames].join(' ')
+    return [...this.state.classNames, this.props.className].join(' ')
   }
 
   _getPathByIconName() {
