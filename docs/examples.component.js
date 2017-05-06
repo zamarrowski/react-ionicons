@@ -44,12 +44,6 @@ class Examples extends Component {
               {bellExample}
             </pre>
           </Paper>
-          <Paper className="example" zDepth={2}>
-            <Ionicon icon="ion-ios-telephone" rotate={true} className="myClass" fontSize="60px" />
-            <pre>
-              {bellExample}
-            </pre>
-          </Paper>
         </div>
       </div>
     )

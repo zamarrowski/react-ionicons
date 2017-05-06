@@ -14710,16 +14710,6 @@ var Examples = function (_Component) {
               null,
               bellExample
             )
-          ),
-          _react2.default.createElement(
-            _Paper2.default,
-            { className: 'example', zDepth: 2 },
-            _react2.default.createElement(_reactIonicons2.default, { icon: 'ion-ios-telephone', rotate: true, className: 'myClass', fontSize: '60px' }),
-            _react2.default.createElement(
-              'pre',
-              null,
-              bellExample
-            )
           )
         )
       );
