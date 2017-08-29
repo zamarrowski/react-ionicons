@@ -13,6 +13,10 @@ h2 {
   color: black
 }
 
+.install li {
+  font-family: Helvetica, sans-serif;
+}
+
 pre {
   padding: 16px;
   background-color: #f6f8fa;
