@@ -1,4 +1,5 @@
 # A React Ionicon Component
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/zamarrowski/react-ionicons/master/ionicons-logo.png">
 </p>
@@ -6,12 +7,14 @@
 View page: https://zamarrowski.github.io/react-ionicons/
 
 ## Install
-```
-npm install --save react-ionicons
+
+```sh
+$ npm install --save react-ionicons
 ```
 
 ## Usage
-```
+
+```js
 import React from 'react'
 import { render } from 'react-dom'
 import Ionicon from 'react-ionicons'
@@ -24,6 +27,10 @@ render(
   <Ionicon icon="ion-refresh" rotate={true} fontSize="35px" color="rgb(125, 176, 24)"/>
 , document.getElementById('container'))
 ```
+
+### Browserify
+
+[`browserify`](https://npmjs.com/packages/browserify) is supported, but you have to install [`browserify-css@^0.12.0`](https://npmjs.com/packages/browserify-css) manually.
 
 ## Features
 
@@ -38,10 +45,10 @@ render(
 
 | Param | Type | Description | Example |
 | --- | --- | --- | --- |
-| icon | <code>String</code> | Icon of ionicons. See http://ionicons.com/. | icon="ion-home" |
-| className | <code>String</code> | Name of a CSS class | className="myClass" | 
-| fontSize | <code>String</code> | Icon size. Allow all units (px, em, %, pt...). | fontSize="35px" |
-| color | <code>String</code> | Icon color. Allow string (blue, red, cyan...), rgb, rgba and hexadecimal colors. | color="#C9C9C9" |
-| rotate | <code>Boolean</code> | Apply rotate animation to icon | rotate={true} |
-| shake | <code>Boolean</code> | Apply shake animation to icon | shake={true} |
-| beat | <code>Boolean</code> | Apply beat animation to icon | beat={true} |
+| `icon` | `String` | Icon of ionicons. See http://ionicons.com/. | `icon="ion-home"` |
+| `className` | `String` | Name of a CSS class | `className="myClass"` |
+| `fontSize` | `String` | Icon size. Allow all units (px, em, %, pt...). | `fontSize="35px"` |
+| `color` | `String` | Icon color. Allow string (blue, red, cyan...), rgb, rgba and hexadecimal colors. | `color="#C9C9C9"` |
+| `rotate` | `Boolean` | Apply rotate animation to icon | `rotate={true}` |
+| `shake` | `Boolean` | Apply shake animation to icon | `shake={true}` |
+| `beat` | `Boolean` | Apply beat animation to icon | `beat={true}` |

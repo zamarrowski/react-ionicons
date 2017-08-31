@@ -41754,7 +41754,7 @@ exports = module.exports = __webpack_require__(45)();
 
 
 // module
-exports.push([module.i, ".install {\n  padding: 20px;\n}\n\nh2 {\n  padding-bottom: 5px;\n  border-bottom: 1px solid #c9c9c9;\n  font-family: Helvetica, sans-serif;\n  margin-bottom: 30px;\n}\n\n.install p {\n  color: black\n}\n\npre {\n  padding: 16px;\n  background-color: #f6f8fa;\n  margin-bottom: 30px;\n  line-height: 1.45;\n  overflow: auto;\n}\n\n.install ul {\n  padding-left: 20px;\n}\n\n.install li {\n  margin-bottom: 5px;\n}\n", ""]);
+exports.push([module.i, ".install {\n  padding: 20px;\n}\n\nh2 {\n  padding-bottom: 5px;\n  border-bottom: 1px solid #c9c9c9;\n  font-family: Helvetica, sans-serif;\n  margin-bottom: 30px;\n}\n\n.install p {\n  color: black\n}\n\n.install li {\n  font-family: Helvetica, sans-serif;\n}\n\npre {\n  padding: 16px;\n  background-color: #f6f8fa;\n  margin-bottom: 30px;\n  line-height: 1.45;\n  overflow: auto;\n}\n\n.install ul {\n  padding-left: 20px;\n}\n\n.install li {\n  margin-bottom: 5px;\n}\n", ""]);
 
 // exports
 
