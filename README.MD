@@ -1,4 +1,5 @@
 # A React Ionicon Component
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/zamarrowski/react-ionicons/master/ionicons-logo.png">
 </p>
@@ -6,12 +7,14 @@
 View page: https://zamarrowski.github.io/react-ionicons/
 
 ## Install
-```
-npm install --save react-ionicons
+
+```sh
+$ npm install --save react-ionicons
 ```
 
 ## Usage
-```
+
+```js
 import React from 'react'
 import { render } from 'react-dom'
 import Ionicon from 'react-ionicons'
