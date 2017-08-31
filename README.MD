@@ -28,6 +28,10 @@ render(
 , document.getElementById('container'))
 ```
 
+### Browserify
+
+[`browserify`](https://npmjs.com/packages/browserify) is supported, but you have to install [`browserify-css@^0.12.0`](https://npmjs.com/packages/browserify-css) manually.
+
 ## Features
 
 * No dependencies, just React.
