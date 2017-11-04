@@ -45,7 +45,7 @@ render(
 
 | Param | Type | Description | Example |
 | --- | --- | --- | --- |
-| `icon` | `String` | Icon of ionicons. See http://ionicons.com/. | `icon="ion-home"` |
+| `icon` | `String` | Icon of ionicons. See https://ionicframework.com/docs/ionicons/. | `icon="ion-home"` |
 | `className` | `String` | Name of a CSS class | `className="myClass"` |
 | `fontSize` | `String` | Icon size. Allow all units (px, em, %, pt...). | `fontSize="35px"` |
 | `color` | `String` | Icon color. Allow string (blue, red, cyan...), rgb, rgba and hexadecimal colors. | `color="#C9C9C9"` |
