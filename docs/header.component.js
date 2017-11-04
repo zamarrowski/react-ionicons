@@ -10,9 +10,9 @@ class Header extends Component {
     }
     return(
       <AppBar
-        title={<span>react-ionicons</span>}
+        title={<span>react-ionicons<sup style={{fontSize: '12px'}}>v2</sup></span>}
         style={appBarStyles}
-        iconElementLeft={<Ionicon icon="ion-ionic" fontSize="50px" color="white" rotate={true}></Ionicon>}
+        iconElementLeft={<Ionicon icon="ios-ionic" fontSize="50px" color="white" rotate={true}></Ionicon>}
       />
     )
   }
