@@ -24,13 +24,8 @@ class IconsContainer extends Component {
       <div className="iconsContainerSection">
         <h2>Icons</h2>
           <p style={{color: 'black'}}><strong>NOTE:</strong> This icons are for react-ionicons v2 that uses ionicons v3.
-            If you are looking for react-ionicons v1 check out this: <a href="http://ionicons.com/">Ionicons</a></p>
-          <TextField
-            floatingLabelText="Search icon..."
-            value={this.state.searchIcon}
-            onChange={this.handleSearchIcon.bind(this)}
-          />
-          <br/>
+            If you are looking for react-ionicons v1 check out this: <a href="http://ionicons.com/">Ionicons</a>
+          </p>
           <SelectField
             floatingLabelText="Filter by type"
             value={this.state.filterSelected}
@@ -42,6 +37,12 @@ class IconsContainer extends Component {
           <MenuItem value={'md'} primaryText="Material design" />
           <MenuItem value={'logo'} primaryText="Logos" />
         </SelectField>
+        <br/>
+        <TextField
+          floatingLabelText="Search icon..."
+          value={this.state.searchIcon}
+          onChange={this.handleSearchIcon.bind(this)}
+        />
         <div className="iconsContainer">
             {this.state.iconsFiltered.map((icon, key) => (
               <div className="icon" key={key}>
@@ -58,14 +59,24 @@ class IconsContainer extends Component {
 
   handleSearchIcon(event) {
     this.setState({searchIcon: event.target.value})
-    let icons = iconsName.filter(icon => icon.indexOf(event.target.value) > -1)
-    this.setState({iconsFiltered: icons })
+    if (!this.filterSelected || this.filterSelected === 'all') {
+      let icons = iconsName.filter(icon => icon.indexOf(event.target.value) > -1)
+      this.setState({iconsFiltered: icons })
+    } else {
+      let icons = this.state.iconsFiltered.filter(icon => icon.indexOf(event.target.value) > -1)
+      this.setState({iconsFiltered: icons })
+    }
+
   }
 
   handleFilter(event, index, value) {
     this.setState({ filterSelected: value })
-    let icons = iconsName.filter(icon => icon.indexOf(value) > -1)
-    this.setState({ iconsFiltered: icons })
+    if (value !== 'all') {
+      let icons = iconsName.filter(icon => icon.indexOf(value) > -1)
+      this.setState({ iconsFiltered: icons })
+    } else {
+      this.setState({ iconsFiltered: iconsName })
+    }
   }
 
 }
