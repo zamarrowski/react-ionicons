@@ -37,7 +37,9 @@ class Ionicon extends Component {
   }
 
   _getPathByIconName() {
-    return icons.find(icon => icon.tags[0] === this.props.icon).paths.join(' ')
+    let icon = icons.find(icon => icon.tags[0] === this.props.icon)
+    if (icon) return icon.paths.join(' ')
+    return ''
   }
 
   _manageAnimation(animation) {
