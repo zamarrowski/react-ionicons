@@ -45,6 +45,12 @@ class Api extends Component {
           type: 'Boolean',
           description: 'Apply beat animation to icon',
           example: 'beat={true}'
+      },
+      {
+          param: 'onClick',
+          type: 'Function',
+          description: 'Pass a function to execute onClick',
+          example: "onClick={() => console.log('Hi!')}"
       }
     ]
     return(

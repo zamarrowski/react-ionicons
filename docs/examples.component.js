@@ -5,7 +5,7 @@ import Ionicon from 'react-ionicons'
 
 class Examples extends Component {
   render() {
-    const nodejsExample = `<Ionicon icon="logo-nodejs" fontSize="60px" color="#43853d" />`
+    const nodejsExample = `<Ionicon icon="logo-nodejs" onClick={() => alert('Hi!')} fontSize="60px" color="#43853d" />`
     const loadExample = `<Ionicon icon="ios-refresh" fontSize="60px" color="#347eff" rotate={true} />`
     const loadLoopExample = `<Ionicon icon="md-infinite" fontSize="60px" rotate={true} />`
     const heartExample = `<Ionicon icon="md-heart" fontSize="60px" color="red" beat={true} />`
@@ -15,7 +15,7 @@ class Examples extends Component {
         <h2>Examples</h2>
         <div className="examplesContainer">
           <Paper className="example" zDepth={2}>
-            <Ionicon icon="logo-nodejs" fontSize="60px" color="#43853d" />
+            <Ionicon icon="logo-nodejs" onClick={() => alert('Hi!')} fontSize="60px" color="#43853d" />
             <pre>
               {nodejsExample}
             </pre>

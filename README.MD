@@ -20,7 +20,7 @@ import { render } from 'react-dom'
 import Ionicon from 'react-ionicons'
 
 render(
-  <Ionicon icon="ios-add-circle" fontSize="35px" color="red"/>
+  <Ionicon icon="ios-add-circle" fontSize="35px" onClick={() => console.log('Hi!')} color="red"/>
   <Ionicon icon="ios-alert" rotate={true} fontSize="35px" color="blue"/>
   <Ionicon icon="ios-analytics-outline" fontSize="35px" color="#C9C9C9"/>
   <Ionicon icon="md-basket" fontSize="35px" color="rgb(125, 176, 24)"/>
@@ -52,3 +52,4 @@ render(
 | `rotate` | `Boolean` | Apply rotate animation to icon | `rotate={true}` |
 | `shake` | `Boolean` | Apply shake animation to icon | `shake={true}` |
 | `beat` | `Boolean` | Apply beat animation to icon | `beat={true}` |
+| `onClick` | `Function` | Pass a function to execute onClick | `onClick={() => console.log('Hi!')}` |
