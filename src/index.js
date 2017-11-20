@@ -26,7 +26,7 @@ class Ionicon extends Component {
     }
 
     return (
-      <svg style={this.props.style} className={this._getClasses()} fill={this.props.color} width={this.props.fontSize} height={this.props.fontSize} viewBox="0 0 1024 1024">
+      <svg style={this.props.style} className={this._getClasses()} fill={this.props.color} width={this.props.fontSize} height={this.props.fontSize} viewBox="0 0 1024 1024" onClick={this.props.onClick}>
         <path d={this._getPathByIconName()}></path>
       </svg>
     )
@@ -75,7 +75,10 @@ Ionicon.propTypes = {
   // animation
   shake: PropTypes.bool,
   beat: PropTypes.bool,
-  rotate: PropTypes.bool
+  rotate: PropTypes.bool,
+  
+  // functions
+  onClick: PropTypes.func
 }
 
 
