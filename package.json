@@ -8,7 +8,8 @@
   "dependencies": {
     "prop-types": "15.5.10",
     "react": "15.4.2",
-    "react-dom": "15.4.2"
+    "react-dom": "15.4.2",
+    "styled-components": "2.2.3"
   },
   "scripts": {
     "prepublish": "babel ./src --out-dir ./lib --source-maps --presets es2015,react,stage-2 --plugins babel-plugin-add-module-exports",
