@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import styles from '../lib/index.css'
 import icons from './icons.js'
+import SVG from './SVG'
 
 class Ionicon extends Component {
 
@@ -10,12 +10,6 @@ class Ionicon extends Component {
     super(props)
     this.state = {classNames: [], animationActive: false}
     this._getClasses = this._getClasses.bind(this)
-  }
-
-  componentWillMount() {
-    this._manageAnimation('shake')
-    this._manageAnimation('beat')
-    this._manageAnimation('rotate')
   }
 
   render() {
@@ -26,9 +20,17 @@ class Ionicon extends Component {
     }
 
     return (
-      <svg style={this.props.style} className={this._getClasses()} fill={this.props.color} width={this.props.fontSize} height={this.props.fontSize} viewBox="0 0 1024 1024" onClick={this.props.onClick}>
+      <SVG
+        style={this.props.style}
+        className={this._getClasses()}
+        fill={this.props.color}
+        width={this.props.fontSize}
+        height={this.props.fontSize}
+        viewBox="0 0 1024 1024"
+        {...this.props}
+      >
         <path d={this._getPathByIconName()}></path>
-      </svg>
+      </SVG>
     )
   }
 
@@ -42,14 +44,6 @@ class Ionicon extends Component {
     return ''
   }
 
-  _manageAnimation(animation) {
-    if (this.props[animation] && !this.state.animationActive) {
-      this.setState({
-        animationActive: true,
-        classNames: [...this.state.classNames, animation]
-      })
-    }
-  }
 }
 
 
@@ -76,7 +70,7 @@ Ionicon.propTypes = {
   shake: PropTypes.bool,
   beat: PropTypes.bool,
   rotate: PropTypes.bool,
-  
+
   // functions
   onClick: PropTypes.func
 }
