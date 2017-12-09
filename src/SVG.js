@@ -54,18 +54,18 @@ export default styled.svg`
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 
-  ${props => props.rotate && css`
-    animation-name: ${rotate};
-    animation-duration: 2s;
-  `}
-
   ${props => props.shake && css`
     animation-name: ${shake};
     animation-duration: 0.82s;
-  `}
+  `};
+
+  ${props => props.rotate && css`
+    animation-name: ${rotate};
+    animation-duration: 2s;
+  `};
 
   ${props => props.beat && css`
     animation-name: ${beat};
     animation-duration: 0.82s;
-  `}
+  `};
 `
