@@ -27,7 +27,10 @@ class Ionicon extends Component {
         width={this.props.fontSize}
         height={this.props.fontSize}
         viewBox="0 0 1024 1024"
-        {...this.props}
+        onClick={this.props.onClick}
+        rotate={this.props.rotate ? 1 : 0}
+        shake={this.props.shake ? 1 : 0}
+        beat={this.props.beat ? 1 : 0}
       >
         <path d={this._getPathByIconName()}></path>
       </SVG>
