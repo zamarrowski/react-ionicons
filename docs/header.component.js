@@ -1,6 +1,6 @@
 'use strict'
 import React, { Component } from 'react'
-import Ionicon from 'react-ionicons'
+import IosIonic from 'react-ionicons/IosIonic'
 import AppBar from 'material-ui/AppBar'
 
 class Header extends Component {
@@ -10,9 +10,9 @@ class Header extends Component {
     }
     return(
       <AppBar
-        title={<span>react-ionicons<sup style={{fontSize: '12px'}}>v2</sup></span>}
+        title={<span>react-ionicons<sup style={{fontSize: '12px'}}>v3</sup></span>}
         style={appBarStyles}
-        iconElementLeft={<Ionicon icon="ios-ionic" fontSize="50px" color="white" rotate={true}></Ionicon>}
+        iconElementLeft={<IosIonic fontSize="50px" color="white" rotate={true}></IosIonic>}
       />
     )
   }

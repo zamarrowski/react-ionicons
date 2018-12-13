@@ -8,13 +8,7 @@ class Api extends Component {
           param: 'style',
           type: 'Object',
           description: 'Style to apply',
-          example: 'icon={...your.style}'
-      },
-      {
-        param: 'icon',
-        type: 'String',
-        description: 'Icon of ionicons.',
-        example: 'icon="ion-home"'
+          example: 'style={...your.style}'
       },
       {
         param: 'fontSize',
