@@ -1,0 +1,81 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+import SVG from './SVG'
+
+class IosLink extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {classNames: [], animationActive: false}
+    this._getClasses = this._getClasses.bind(this)
+  }
+
+  render() {
+    const style = {
+      ...this.props.style,
+      color: this.props.color,
+      fontSize: this.props.fontSize,
+    }
+
+    return (
+      <SVG
+        style={this.props.style}
+        className={this._getClasses()}
+        fill={this.props.color}
+        width={this.props.fontSize}
+        height={this.props.fontSize}
+        viewBox="0 0 1024 1024"
+        onClick={this.props.onClick}
+        rotate={this.props.rotate ? 1 : 0}
+        shake={this.props.shake ? 1 : 0}
+        beat={this.props.beat ? 1 : 0}
+      >
+        <path d="M546 681.8l-135.8 135.8c-27 27-63.2 42-101.8 42s-74.8-14.8-101.8-42c-27-27-42-63.2-42-101.8s14.8-74.8 42-101.8l135.8-135.8c6.8-6.8 14.4-13 22.6-18.4 9.2-6 19-11 29.4-14.8 9.6-3.6 19.6-6 29.8-7.4 6.8-1 13.6-1.4 20.2-1.4 2.8 0 5.6 0.2 9.2 0.4 35 2.2 68 17 92.6 41.6 21.6 21.6 35.6 49.6 40.2 79.6 4.6-0.2 16.4-1 32.4-5.8s26.8-12.6 26.8-12.6c-6.6-42.4-23.2-75.6-54.2-106.4-30.8-30.8-71-51.2-114-58-3.8-0.6-7.4-1.2-11.2-1.6-7.2-0.8-14.6-1.2-22-1.2-5 0-10.2 0.2-15.4 0.6-10.8 0.8-21.4 2.4-32 4.8-2.2 0.4-4.2 1-6.4 1.6-13.4 3.6-26.4 8.4-38.6 14.4-20.2 10-38.8 23.2-54.8 39.2l-135.8 135.8c-39.2 39.2-60.6 91.4-60.6 147s21.6 108 60.6 147c39.2 39.2 91.4 60.6 147 60.6 55.8 0 108-21.6 147-60.6l135.8-135.8c14.4-14.4 26.4-30.8 36-48.6 0 0-22.4 5.4-47.2 5.4s-33.8-1.8-33.8-1.8z M862.8 161.2c-39.2-39.2-91.4-60.6-147-60.6s-108 21.6-147 60.6l-135.8 135.8c-14.4 14.4-26.4 30.8-36 48.6 0 0 0 0 0 0 10.4-2.4 30.6-4.8 48-4.8s32.4 2.2 32.4 2.2l136.6-136.2c27-27 63.2-42 101.8-42s74.8 14.8 101.8 42c27 27 42 63.2 42 101.8s-14.8 74.8-42 101.8l-135.8 135.6c-6.8 6.8-14.4 13-22.6 18.4-9.2 6-19 11-29.4 14.8-9.6 3.4-19.6 6-29.8 7.4-6.8 1-13.6 1.4-20.2 1.4-2.8 0-5.6-0.2-9.2-0.4-35-2.2-68-17-92.6-41.6-21.2-21.2-35-48.4-39.8-77.6 0 0-13.2-1-31.4 4.6-11.4 3.4-23.2 8.4-28.4 11 6 43 22.8 75.4 54.2 107v0l0.4 0.4c33.4 33.4 78 54.6 125.2 59.6 7.2 0.8 14.6 1.2 22 1.2 5.2 0 10.2-0.2 15.4-0.6 12.8-1 25.8-3 38.2-6.4 13.4-3.6 26.4-8.4 38.6-14.4 20.2-10 38.8-23.2 54.8-39.2l135.8-135.8c39.2-39.2 60.6-91.4 60.6-147s-21.8-108.4-60.8-147.6z"></path>
+      </SVG>
+    )
+  }
+
+  _getClasses() {
+    return [...this.state.classNames, this.props.className].join(' ')
+  }
+
+  _getPathByIconName() {
+    let icon = icons.find(icon => icon.tags[0] === this.props.icon)
+    if (icon) return icon.paths.join(' ')
+    return ''
+  }
+
+}
+
+
+IosLink.defaultProps = {
+  // style
+  style: {},
+  color: '#000000',
+  fontSize: '22px',
+
+  // animation
+  shake: false,
+  beat: false,
+  rotate: false,
+}
+
+
+IosLink.propTypes = {
+  // style
+  style: PropTypes.object,
+  color: PropTypes.string,
+  fontSize: PropTypes.string,
+
+  // animation
+  shake: PropTypes.bool,
+  beat: PropTypes.bool,
+  rotate: PropTypes.bool,
+
+  // functions
+  onClick: PropTypes.func
+}
+
+
+export default IosLink

@@ -1,9 +1,9 @@
 'use strict'
 
 let webpack = require('webpack')
-
+let entryPoints = require('./src/components')
 let config = {
-  entry: './src/index.js',
+  entry: entryPoints,
   output: {
     path: 'lib/',
     filename: 'index.js'

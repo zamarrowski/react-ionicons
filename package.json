@@ -2,7 +2,6 @@
   "name": "react-ionicons",
   "version": "2.1.6",
   "description": "A React SVG ionicon component",
-  "main": "lib/index.js",
   "author": "zamarrowski",
   "license": "ISC",
   "dependencies": {

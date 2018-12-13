@@ -1,0 +1,81 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+import SVG from './SVG'
+
+class IosColorFillOutline extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {classNames: [], animationActive: false}
+    this._getClasses = this._getClasses.bind(this)
+  }
+
+  render() {
+    const style = {
+      ...this.props.style,
+      color: this.props.color,
+      fontSize: this.props.fontSize,
+    }
+
+    return (
+      <SVG
+        style={this.props.style}
+        className={this._getClasses()}
+        fill={this.props.color}
+        width={this.props.fontSize}
+        height={this.props.fontSize}
+        viewBox="0 0 1024 1024"
+        onClick={this.props.onClick}
+        rotate={this.props.rotate ? 1 : 0}
+        shake={this.props.shake ? 1 : 0}
+        beat={this.props.beat ? 1 : 0}
+      >
+        <path d="M822.8 600.6l-367.6-364c0 0 0 0 0 0l-112.4-112.6c-18.6-18.6-43.2-28-67.8-28s-49.2 9.4-67.8 28v0c-37.4 37.4-37.4 98.4 0 135.8l98.6 98.6-209.8 208.4 342.6 329.2c0 0 270.2-261.4 292.2-283.4 11.6-11.6 36.4-14.2 57.2-14.2 19 0 34.8 2.2 34.8 2.2zM229.6 237.2c-12-12-18.6-28-18.6-45.2s6.6-33.2 18.6-45.2c12-12 28-18.6 45.2-18.6s33.2 6.6 45.2 18.6l99 99-90.8 90.2-98.6-98.8zM708 590c-17.8 17.8-204.6 198.6-269.6 261.6l-296.6-285.2 299.8-298.2 305.2 302.2c-16.6 3.8-29.4 10.4-38.8 19.6z M832 672c0 0-96 106.6-96 159.8s43 96.2 96 96.2c0 0 0 0 0 0 53 0 96-43.2 96-96.2 0-53.2-96-159.8-96-159.8zM877.2 877.2c-12 12.2-28.2 18.8-45.2 18.8-35.2 0-64-28.8-64-64.2 0-3.8 2-25.6 41.6-80.6 7.8-10.8 15.4-20.8 22.4-29.4 6.8 8.4 14.4 18.4 22 29 40 55.4 42 77.2 42 81 0 17.2-6.6 33.2-18.8 45.4z"></path>
+      </SVG>
+    )
+  }
+
+  _getClasses() {
+    return [...this.state.classNames, this.props.className].join(' ')
+  }
+
+  _getPathByIconName() {
+    let icon = icons.find(icon => icon.tags[0] === this.props.icon)
+    if (icon) return icon.paths.join(' ')
+    return ''
+  }
+
+}
+
+
+IosColorFillOutline.defaultProps = {
+  // style
+  style: {},
+  color: '#000000',
+  fontSize: '22px',
+
+  // animation
+  shake: false,
+  beat: false,
+  rotate: false,
+}
+
+
+IosColorFillOutline.propTypes = {
+  // style
+  style: PropTypes.object,
+  color: PropTypes.string,
+  fontSize: PropTypes.string,
+
+  // animation
+  shake: PropTypes.bool,
+  beat: PropTypes.bool,
+  rotate: PropTypes.bool,
+
+  // functions
+  onClick: PropTypes.func
+}
+
+
+export default IosColorFillOutline
