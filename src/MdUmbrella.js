@@ -1,0 +1,81 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+import SVG from './SVG'
+
+class MdUmbrella extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {classNames: [], animationActive: false}
+    this._getClasses = this._getClasses.bind(this)
+  }
+
+  render() {
+    const style = {
+      ...this.props.style,
+      color: this.props.color,
+      fontSize: this.props.fontSize,
+    }
+
+    return (
+      <SVG
+        style={this.props.style}
+        className={this._getClasses()}
+        fill={this.props.color}
+        width={this.props.fontSize}
+        height={this.props.fontSize}
+        viewBox="0 0 1024 1024"
+        onClick={this.props.onClick}
+        rotate={this.props.rotate ? 1 : 0}
+        shake={this.props.shake ? 1 : 0}
+        beat={this.props.beat ? 1 : 0}
+      >
+        <path d="M820.2 488.2c24 0 53.2 21.8 67.6 51.8h40.2c-0.6-100-42.4-203-118.8-281.8-72.6-74.8-166-121-265.2-131.4-6-18-23-30.8-43.2-30.8-20 0-37 13-43 30.6-207.2 21-361.8 192.8-361.8 405.8 0 2.2 0.2 3.6 0.8 7.6h43.6c13.6-30 44.4-51.8 70.6-51.8 34 0 63 21.8 73 51.8h39.6c8.2-30 33.8-51.4 66-51.4 35.6 0 66.2 29 68.2 65.2v236.6c0 18.6 0.2 48.2-26.8 48.2-13.8 0-33.2-3.6-33.2-32v-42.6h-86v42.6c0 69.2 47.2 121.4 120 121.4 39 0 66.6-17 87-37.4 26.2-26.4 27-69.4 27-100.2v-238.2c4-51.6 47.8-63.4 83.8-63.4 34.4 0 64.6 23.2 75.6 51.2h41c10.2-30 39.6-51.8 74-51.8z"></path>
+      </SVG>
+    )
+  }
+
+  _getClasses() {
+    return [...this.state.classNames, this.props.className].join(' ')
+  }
+
+  _getPathByIconName() {
+    let icon = icons.find(icon => icon.tags[0] === this.props.icon)
+    if (icon) return icon.paths.join(' ')
+    return ''
+  }
+
+}
+
+
+MdUmbrella.defaultProps = {
+  // style
+  style: {},
+  color: '#000000',
+  fontSize: '22px',
+
+  // animation
+  shake: false,
+  beat: false,
+  rotate: false,
+}
+
+
+MdUmbrella.propTypes = {
+  // style
+  style: PropTypes.object,
+  color: PropTypes.string,
+  fontSize: PropTypes.string,
+
+  // animation
+  shake: PropTypes.bool,
+  beat: PropTypes.bool,
+  rotate: PropTypes.bool,
+
+  // functions
+  onClick: PropTypes.func
+}
+
+
+export default MdUmbrella

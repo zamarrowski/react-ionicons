@@ -17,14 +17,10 @@ $ npm install --save react-ionicons
 ```js
 import React from 'react'
 import { render } from 'react-dom'
-import Ionicon from 'react-ionicons'
+import LogoNodejs from 'react-ionicons/lib/LogoNodejs'
 
 render(
-  <Ionicon icon="ios-add-circle" fontSize="35px" onClick={() => console.log('Hi!')} color="red"/>
-  <Ionicon icon="ios-alert" rotate={true} fontSize="35px" color="blue"/>
-  <Ionicon icon="ios-analytics-outline" fontSize="35px" color="#C9C9C9"/>
-  <Ionicon icon="md-basket" fontSize="35px" color="rgb(125, 176, 24)"/>
-  <Ionicon icon="md-calculator" rotate={true} fontSize="35px" color="rgb(125, 176, 24)"/>
+  <LogoNodejs onClick={() => alert('Hi!')} fontSize="60px" color="#43853d" />
 , document.getElementById('container'))
 ```
 
@@ -45,7 +41,6 @@ render(
 
 | Param | Type | Description | Example |
 | --- | --- | --- | --- |
-| `icon` | `String` | Icon of ionicons. See https://ionicframework.com/docs/ionicons/. | `icon="ion-home"` |
 | `className` | `String` | Name of a CSS class | `className="myClass"` |
 | `fontSize` | `String` | Icon size. Allow all units (px, em, %, pt...). | `fontSize="35px"` |
 | `color` | `String` | Icon color. Allow string (blue, red, cyan...), rgb, rgba and hexadecimal colors. | `color="#C9C9C9"` |

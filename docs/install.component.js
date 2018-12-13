@@ -8,14 +8,10 @@ class Install extends Component {
     this.usageCode = `
     import React from 'react'
     import { render } from 'react-dom'
-    import Ionicon from 'react-ionicons'
+    import LogoNodejs from 'react-ionicons/lib/LogoNodejs'
 
     render(
-      <Ionicon icon="ios-add-circle" onClick={() => console.log('Hi!')} fontSize="35px" color="red"/>
-      <Ionicon icon="ios-alert" rotate={true} fontSize="35px" color="blue"/>
-      <Ionicon icon="ios-analytics-outline" fontSize="35px" color="#C9C9C9"/>
-      <Ionicon icon="md-basket" fontSize="35px" color="rgb(125, 176, 24)"/>
-      <Ionicon icon="md-calculator" rotate={true} fontSize="35px" color="rgb(125, 176, 24)"/>
+      <LogoNodejs onClick={() => alert('Hi!')} fontSize="60px" color="#43853d" />
     , document.getElementById('container'))
     `
   }
