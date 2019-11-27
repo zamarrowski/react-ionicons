@@ -1,14 +1,14 @@
 {
   "name": "react-ionicons",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "A React SVG ionicon component",
   "author": "zamarrowski",
   "license": "ISC",
   "dependencies": {
     "prop-types": "15.5.10",
-    "react": "15.4.2",
-    "react-dom": "15.4.2",
-    "styled-components": "2.2.3"
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "styled-components": "4.4.1"
   },
   "scripts": {
     "prepublish": "babel ./src --out-dir ./lib --source-maps --presets es2015,react,stage-2 --plugins babel-plugin-add-module-exports",

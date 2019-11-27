@@ -1,6 +1,6 @@
 'use strict'
 import React, { Component } from 'react'
-import IosIonic from 'react-ionicons/IosIonic'
+import IosIonic from 'react-ionicons/lib/IosIonic'
 import AppBar from 'material-ui/AppBar'
 
 class Header extends Component {
