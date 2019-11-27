@@ -1,7 +1,7 @@
 'use strict'
 import React, { Component } from 'react'
 import styles from './jumbo.css'
-import IosIonic from 'react-ionicons/IosIonic'
+import IosIonic from 'react-ionicons/lib/IosIonic'
 
 class Jumbo extends Component {
   render() {

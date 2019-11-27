@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import styles from './examples.css'
 import Paper from 'material-ui/Paper'
-import IosRefresh from 'react-ionicons/IosRefresh'
-import LogoNodejs from 'react-ionicons/LogoNodejs'
-import MdInfinite from 'react-ionicons/MdInfinite'
-import MdHeart from 'react-ionicons/MdHeart'
-import MdPizza from 'react-ionicons/MdPizza'
+import IosRefresh from 'react-ionicons/lib/IosRefresh'
+import LogoNodejs from 'react-ionicons/lib/LogoNodejs'
+import MdInfinite from 'react-ionicons/lib/MdInfinite'
+import MdHeart from 'react-ionicons/lib/MdHeart'
+import MdPizza from 'react-ionicons/lib/MdPizza'
 
 class Examples extends Component {
   render() {
