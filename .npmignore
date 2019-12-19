@@ -1,6 +1,4 @@
-*
-
-!/lib
-!/README*
-!/LICENSE*
-!/package*
+docs/
+src/
+*.png
+*.map
