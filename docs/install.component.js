@@ -8,7 +8,7 @@ class Install extends Component {
     this.usageCode = `
     import React from 'react'
     import { render } from 'react-dom'
-    import LogoNodejs from 'react-ionicons/lib/lib/LogoNodejs'
+    import LogoNodejs from 'react-ionicons/lib/LogoNodejs'
 
     render(
       <LogoNodejs onClick={() => alert('Hi!')} fontSize="60px" color="#43853d" />
