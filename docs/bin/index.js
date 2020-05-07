@@ -20113,7 +20113,7 @@ var Install = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Install.__proto__ || Object.getPrototypeOf(Install)).call(this));
 
-    _this.usageCode = '\n    import React from \'react\'\n    import { render } from \'react-dom\'\n    import LogoNodejs from \'react-ionicons/lib/lib/LogoNodejs\'\n\n    render(\n      <LogoNodejs onClick={() => alert(\'Hi!\')} fontSize="60px" color="#43853d" />\n    , document.getElementById(\'container\'))\n    ';
+    _this.usageCode = '\n    import React from \'react\'\n    import { render } from \'react-dom\'\n    import LogoNodejs from \'react-ionicons/lib/LogoNodejs\'\n\n    render(\n      <LogoNodejs onClick={() => alert(\'Hi!\')} fontSize="60px" color="#43853d" />\n    , document.getElementById(\'container\'))\n    ';
     return _this;
   }
 
