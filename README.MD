@@ -30,7 +30,7 @@ render(
 
 ## Features
 
-* No dependencies, just React.
+* Few dependencies, just React and Styled Components.
 * SVG Icons.
 * Simple API.
 * Animations.
