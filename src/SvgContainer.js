@@ -43,6 +43,7 @@ const beat = keyframes`
 
 export default styled.span`
   svg {
+    vertical-align: ${props => props.verticalAlign};
     height: ${props => props.height};
     width: ${props => props.width};
     color: ${props => props.color};

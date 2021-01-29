@@ -1,0 +1,56 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+
+import SvgContainer from './SvgContainer'
+
+const MedalSharp = props => {
+  return (
+    <SvgContainer
+      height={props.height}
+      width={props.width}
+      color={props.color}
+      onClick={props.onClick}
+      rotate={props.rotate ? 1 : 0}
+      shake={props.shake ? 1 : 0}
+      beat={props.beat ? 1 : 0}
+    >
+      <span dangerouslySetInnerHTML={{__html: '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Medal</title><path d="M80 32L16 160h289.11l80.22-128H80z"/><path d="M496 144L424 32 298 231.08a128 128 0 00-84 0L189.53 192H43.82l86.66 134.89a128 128 0 10251 0zM256 422a70 70 0 1170-70 70.08 70.08 0 01-70 70z"/><circle cx="256" cy="352" r="32"/></svg>'}} />
+    </SvgContainer>
+  )
+}
+
+
+MedalSharp.defaultProps = {
+  // style
+  style: {},
+  color: '#000000',
+  height: '22px',
+  width: '22px',
+  cssClasses: '',
+
+  // animation
+  shake: false,
+  beat: false,
+  rotate: false,
+}
+
+
+MedalSharp.propTypes = {
+  // style
+  style: PropTypes.object,
+  color: PropTypes.string,
+  height: PropTypes.string,
+  width: PropTypes.string,
+  cssClasses: PropTypes.string,
+
+  // animation
+  shake: PropTypes.bool,
+  beat: PropTypes.bool,
+  rotate: PropTypes.bool,
+
+  // functions
+  onClick: PropTypes.func
+}
+
+
+export default MedalSharp

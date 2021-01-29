@@ -17,11 +17,15 @@ $ npm install --save react-ionicons
 ```js
 import React from 'react'
 import { render } from 'react-dom'
-import LogoNodejs from 'react-ionicons/lib/LogoNodejs'
+import { LogoNodejs } from 'react-ionicons'
 
-render(
-  <LogoNodejs onClick={() => alert('Hi!')} fontSize="60px" color="#43853d" />
-, document.getElementById('container'))
+<LogoNodejs
+  color={'#00000'}
+  rotate
+  height="250px"
+  width="250px"
+  onClick={() => alert('Hi!')}
+/>
 ```
 
 ### Browserify
@@ -41,8 +45,8 @@ render(
 
 | Param | Type | Description | Example |
 | --- | --- | --- | --- |
-| `className` | `String` | Name of a CSS class | `className="myClass"` |
-| `fontSize` | `String` | Icon size. Allow all units (px, em, %, pt...). | `fontSize="35px"` |
+| `height` | `String` | Icon size. Allow all units (px, em, %, pt...). | `height="22px"` |
+| `width` | `String` | Icon size. Allow all units (px, em, %, pt...). | `width="22px"` |
 | `color` | `String` | Icon color. Allow string (blue, red, cyan...), rgb, rgba and hexadecimal colors. | `color="#C9C9C9"` |
 | `rotate` | `Boolean` | Apply rotate animation to icon | `rotate={true}` |
 | `shake` | `Boolean` | Apply shake animation to icon | `shake={true}` |
