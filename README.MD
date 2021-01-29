@@ -4,12 +4,18 @@
   <img src="https://raw.githubusercontent.com/zamarrowski/react-ionicons/master/ionicons-logo.png">
 </p>
 
-View page: https://zamarrowski.github.io/react-ionicons/
+Beautiful doc in https://react-ionicons.netlify.app/
 
 ## Install
 
 ```sh
 $ npm install --save react-ionicons
+```
+
+or
+
+```sh
+$ yarn add react-ionicons
 ```
 
 ## Usage

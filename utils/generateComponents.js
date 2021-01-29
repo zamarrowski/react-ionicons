@@ -21,6 +21,7 @@ const ${toCamelCase(componentName)} = props => {
       rotate={props.rotate ? 1 : 0}
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
+      verticalAlign={props.verticalAlign}
     >
       <span dangerouslySetInnerHTML={{__html: '${svg}'}} />
     </SvgContainer>
