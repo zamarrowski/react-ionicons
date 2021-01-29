@@ -1,24 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import SVG from './SVG'
+import SvgContainer from './SvgContainer'
 
 const LogoPinterest = props => {
   return (
-    <SVG
-      style={props.style}
-      className={props.className}
-      fill={props.color}
-      width={props.fontSize}
-      height={props.fontSize}
-      viewBox="0 0 1024 1024"
+    <SvgContainer
+      height={props.height}
+      width={props.width}
+      color={props.color}
       onClick={props.onClick}
       rotate={props.rotate ? 1 : 0}
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
     >
-      <path d="M512 64c-247.4 0-448 200.6-448 448 0 183.4 110.4 341 268.2 410.4-1.2-31.2-0.2-68.8 7.8-102.8 8.6-36.4 57.6-244.2 57.6-244.2s-14.4-28.6-14.4-70.8c0-66.4 38.4-116 86.4-116 40.8 0 60.4 30.6 60.4 67.2 0 41-26.2 102.2-39.6 159-11.2 47.6 23.8 86.2 70.8 86.2 84.8 0 142-109 142-238.2 0-98.2-66.2-171.6-186.4-171.6-135.8 0-220.6 101.4-220.6 214.6 0 39 11.6 66.6 29.6 87.8 8.2 9.8 9.4 13.8 6.4 25-2.2 8.2-7 28-9.2 36-3 11.4-12.2 15.4-22.4 11.2-62.6-25.6-91.8-94-91.8-171.2 0-127.2 107.4-279.8 320.2-279.8 171 0 283.6 123.8 283.6 256.6 0 175.8-97.8 307-241.8 307-48.4 0-93.8-26.2-109.4-55.8 0 0-26 103.2-31.6 123.2-9.4 34.6-28 69-45 96 40.2 11.8 82.8 18.4 127 18.4 247.4 0 448-200.6 448-448 0.2-247.6-200.4-448.2-447.8-448.2z"></path>
-    </SVG>
+      <span dangerouslySetInnerHTML={{__html: '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Logo Pinterest</title><path d="M256.05 32c-123.7 0-224 100.3-224 224 0 91.7 55.2 170.5 134.1 205.2-.6-15.6-.1-34.4 3.9-51.4 4.3-18.2 28.8-122.1 28.8-122.1s-7.2-14.3-7.2-35.4c0-33.2 19.2-58 43.2-58 20.4 0 30.2 15.3 30.2 33.6 0 20.5-13.1 51.1-19.8 79.5-5.6 23.8 11.9 43.1 35.4 43.1 42.4 0 71-54.5 71-119.1 0-49.1-33.1-85.8-93.2-85.8-67.9 0-110.3 50.7-110.3 107.3 0 19.5 5.8 33.3 14.8 43.9 4.1 4.9 4.7 6.9 3.2 12.5-1.1 4.1-3.5 14-4.6 18-1.5 5.7-6.1 7.7-11.2 5.6-31.3-12.8-45.9-47-45.9-85.6 0-63.6 53.7-139.9 160.1-139.9 85.5 0 141.8 61.9 141.8 128.3 0 87.9-48.9 153.5-120.9 153.5-24.2 0-46.9-13.1-54.7-27.9 0 0-13 51.6-15.8 61.6-4.7 17.3-14 34.5-22.5 48a225.13 225.13 0 0063.5 9.2c123.7 0 224-100.3 224-224S379.75 32 256.05 32z"/></svg>'}} />
+    </SvgContainer>
   )
 }
 
@@ -27,7 +24,9 @@ LogoPinterest.defaultProps = {
   // style
   style: {},
   color: '#000000',
-  fontSize: '22px',
+  height: '22px',
+  width: '22px',
+  cssClasses: '',
 
   // animation
   shake: false,
@@ -40,7 +39,9 @@ LogoPinterest.propTypes = {
   // style
   style: PropTypes.object,
   color: PropTypes.string,
-  fontSize: PropTypes.string,
+  height: PropTypes.string,
+  width: PropTypes.string,
+  cssClasses: PropTypes.string,
 
   // animation
   shake: PropTypes.bool,

@@ -1,24 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import SVG from './SVG'
+import SvgContainer from './SvgContainer'
 
 const LogoMarkdown = props => {
   return (
-    <SVG
-      style={props.style}
-      className={props.className}
-      fill={props.color}
-      width={props.fontSize}
-      height={props.fontSize}
-      viewBox="0 0 1024 1024"
+    <SvgContainer
+      height={props.height}
+      width={props.width}
+      color={props.color}
       onClick={props.onClick}
       rotate={props.rotate ? 1 : 0}
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
     >
-      <path d="M895.318 192h-766.636c-35.674 0-64.682 28.968-64.682 64.616v510.698c0 35.672 29.008 64.686 64.682 64.686h766.636c35.674 0 64.682-29.014 64.682-64.688v-510.696c0-35.648-29.008-64.616-64.682-64.616zM568.046 704h-112.096v-192l-84.080 107.756-84.044-107.756v192h-112.088v-384h112.088l84.044 135.96 84.080-135.96h112.096v384zM735.36 704l-139.27-192h84v-192h112.086v192h84.054l-140.87 192z"></path>
-    </SVG>
+      <span dangerouslySetInnerHTML={{__html: '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Logo Markdown</title><path d="M475 64H37C16.58 64 0 81.38 0 102.77v306.42C0 430.59 16.58 448 37 448h438c20.38 0 37-17.41 37-38.81V102.77C512 81.38 495.42 64 475 64zM288 368h-64V256l-48 64-48-64v112H64V144h64l48 80 48-80h64zm96 0l-80-112h48.05L352 144h64v112h48z"/></svg>'}} />
+    </SvgContainer>
   )
 }
 
@@ -27,7 +24,9 @@ LogoMarkdown.defaultProps = {
   // style
   style: {},
   color: '#000000',
-  fontSize: '22px',
+  height: '22px',
+  width: '22px',
+  cssClasses: '',
 
   // animation
   shake: false,
@@ -40,7 +39,9 @@ LogoMarkdown.propTypes = {
   // style
   style: PropTypes.object,
   color: PropTypes.string,
-  fontSize: PropTypes.string,
+  height: PropTypes.string,
+  width: PropTypes.string,
+  cssClasses: PropTypes.string,
 
   // animation
   shake: PropTypes.bool,

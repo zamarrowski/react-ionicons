@@ -1,24 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import SVG from './SVG'
+import SvgContainer from './SvgContainer'
 
 const LogoFacebook = props => {
   return (
-    <SVG
-      style={props.style}
-      className={props.className}
-      fill={props.color}
-      width={props.fontSize}
-      height={props.fontSize}
-      viewBox="0 0 1024 1024"
+    <SvgContainer
+      height={props.height}
+      width={props.width}
+      color={props.color}
       onClick={props.onClick}
       rotate={props.rotate ? 1 : 0}
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
     >
-      <path d="M853.6 128h-683.2c-23.4 0-42.4 19-42.4 42.4v683.2c0 23.4 19 42.4 42.4 42.4h341.6v-304h-91.8v-112h91.8v-82.8c0-99.2 68.8-153.2 157.4-153.2 42.4 0 88 3.2 98.6 4.6v103.6h-70.6c-48.2 0-57.4 22.8-57.4 56.4v71.4h114.8l-15 112h-99.8v304h213.6c23.4 0 42.4-19 42.4-42.4v-683.2c0-23.4-19-42.4-42.4-42.4z"></path>
-    </SVG>
+      <span dangerouslySetInnerHTML={{__html: '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Logo Facebook</title><path d="M480 257.35c0-123.7-100.3-224-224-224s-224 100.3-224 224c0 111.8 81.9 204.47 189 221.29V322.12h-56.89v-64.77H221V208c0-56.13 33.45-87.16 84.61-87.16 24.51 0 50.15 4.38 50.15 4.38v55.13H327.5c-27.81 0-36.51 17.26-36.51 35v42h62.12l-9.92 64.77H291v156.54c107.1-16.81 189-109.48 189-221.31z" fill-rule="evenodd"/></svg>'}} />
+    </SvgContainer>
   )
 }
 
@@ -27,7 +24,9 @@ LogoFacebook.defaultProps = {
   // style
   style: {},
   color: '#000000',
-  fontSize: '22px',
+  height: '22px',
+  width: '22px',
+  cssClasses: '',
 
   // animation
   shake: false,
@@ -40,7 +39,9 @@ LogoFacebook.propTypes = {
   // style
   style: PropTypes.object,
   color: PropTypes.string,
-  fontSize: PropTypes.string,
+  height: PropTypes.string,
+  width: PropTypes.string,
+  cssClasses: PropTypes.string,
 
   // animation
   shake: PropTypes.bool,

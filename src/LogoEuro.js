@@ -1,24 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import SVG from './SVG'
+import SvgContainer from './SvgContainer'
 
 const LogoEuro = props => {
   return (
-    <SVG
-      style={props.style}
-      className={props.className}
-      fill={props.color}
-      width={props.fontSize}
-      height={props.fontSize}
-      viewBox="0 0 1024 1024"
+    <SvgContainer
+      height={props.height}
+      width={props.width}
+      color={props.color}
       onClick={props.onClick}
       rotate={props.rotate ? 1 : 0}
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
     >
-      <path d="M468 544v-96h262.188l14.298-96h-276.486v-3.66c0-71.84 29.95-116.172 158.5-116.172 52.528 0 111.734 4.996 186.378 17.484l19.122-129.92c-76.024-17.486-141.388-23.732-211.886-23.732-229.462 0-328.114 82.45-328.114 234.86v21.14h-100v96h100v96h-100v96h100v53.14c0 152.408 98.594 234.86 328.054 234.86 70.5 0 135.696-6.246 211.718-23.732l-19.238-129.92c-74.644 12.488-133.562 17.484-186.090 17.484-128.552 0-158.446-37.478-158.446-126.172v-25.66h233.59l14.296-96h-247.884z"></path>
-    </SVG>
+      <span dangerouslySetInnerHTML={{__html: '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Logo Euro</title><path d="M231.8 272v-48H376l8-48H231.8v-8.12c0-38.69 16.47-62.56 87.18-62.56 28.89 0 61.45 2.69 102.5 9.42l10.52-70A508.54 508.54 0 00315.46 32C189.26 32 135 76.4 135 158.46V176H80v48h55v48H80v48h55v33.54C135 435.6 189.23 480 315.43 480a507.76 507.76 0 00116.44-12.78l-10.58-70c-41.05 6.73-73.46 9.42-102.35 9.42-70.7 0-87.14-20.18-87.14-67.94V320h128.47l7.87-48z"/></svg>'}} />
+    </SvgContainer>
   )
 }
 
@@ -27,7 +24,9 @@ LogoEuro.defaultProps = {
   // style
   style: {},
   color: '#000000',
-  fontSize: '22px',
+  height: '22px',
+  width: '22px',
+  cssClasses: '',
 
   // animation
   shake: false,
@@ -40,7 +39,9 @@ LogoEuro.propTypes = {
   // style
   style: PropTypes.object,
   color: PropTypes.string,
-  fontSize: PropTypes.string,
+  height: PropTypes.string,
+  width: PropTypes.string,
+  cssClasses: PropTypes.string,
 
   // animation
   shake: PropTypes.bool,

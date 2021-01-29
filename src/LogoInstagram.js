@@ -1,24 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import SVG from './SVG'
+import SvgContainer from './SvgContainer'
 
 const LogoInstagram = props => {
   return (
-    <SVG
-      style={props.style}
-      className={props.className}
-      fill={props.color}
-      width={props.fontSize}
-      height={props.fontSize}
-      viewBox="0 0 1024 1024"
+    <SvgContainer
+      height={props.height}
+      width={props.width}
+      color={props.color}
       onClick={props.onClick}
       rotate={props.rotate ? 1 : 0}
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
     >
-      <path d="M672 511.666c0 88.366-71.634 160-160 160s-160-71.634-160-160c0-88.366 71.634-160 160-160s160 71.634 160 160z M355.61 353.774c42.308-42.308 98.558-65.858 158.39-65.858s116.082 23.674 158.39 65.982c26.844 26.844 46.022 59.102 56.464 95.102h168.146v-226c0-53.020-40.98-94-94-94h-576c-53.020 0-98 40.98-98 94v226h170.144c10.444-36 29.622-68.382 56.466-95.226zM833 295.4c0 14.138-11.46 25.6-25.6 25.6h-76.8c-14.138 0-25.6-11.46-25.6-25.6v-76.8c0-14.138 11.46-25.6 25.6-25.6h76.8c14.138 0 25.6 11.46 25.6 25.6v76.8z M672.39 670.558c-42.308 42.308-98.558 65.358-158.39 65.358s-116.082-22.924-158.39-65.232c-42.23-42.23-65.518-99.684-65.606-157.684h-161.004v286c0 53.020 44.98 98 98 98h576c53.020 0 94-44.98 94-98v-286h-159.004c-0.086 58-23.374 115.328-65.606 157.558z"></path>
-    </SVG>
+      <span dangerouslySetInnerHTML={{__html: '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Logo Instagram</title><path d="M349.33 69.33a93.62 93.62 0 0193.34 93.34v186.66a93.62 93.62 0 01-93.34 93.34H162.67a93.62 93.62 0 01-93.34-93.34V162.67a93.62 93.62 0 0193.34-93.34h186.66m0-37.33H162.67C90.8 32 32 90.8 32 162.67v186.66C32 421.2 90.8 480 162.67 480h186.66C421.2 480 480 421.2 480 349.33V162.67C480 90.8 421.2 32 349.33 32z"/><path d="M377.33 162.67a28 28 0 1128-28 27.94 27.94 0 01-28 28zM256 181.33A74.67 74.67 0 11181.33 256 74.75 74.75 0 01256 181.33m0-37.33a112 112 0 10112 112 112 112 0 00-112-112z"/></svg>'}} />
+    </SvgContainer>
   )
 }
 
@@ -27,7 +24,9 @@ LogoInstagram.defaultProps = {
   // style
   style: {},
   color: '#000000',
-  fontSize: '22px',
+  height: '22px',
+  width: '22px',
+  cssClasses: '',
 
   // animation
   shake: false,
@@ -40,7 +39,9 @@ LogoInstagram.propTypes = {
   // style
   style: PropTypes.object,
   color: PropTypes.string,
-  fontSize: PropTypes.string,
+  height: PropTypes.string,
+  width: PropTypes.string,
+  cssClasses: PropTypes.string,
 
   // animation
   shake: PropTypes.bool,
