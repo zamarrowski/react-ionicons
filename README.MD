@@ -58,3 +58,5 @@ import { LogoNodejs } from 'react-ionicons'
 | `shake` | `Boolean` | Apply shake animation to icon | `shake={true}` |
 | `beat` | `Boolean` | Apply beat animation to icon | `beat={true}` |
 | `onClick` | `Function` | Pass a function to execute onClick | `onClick={() => console.log('Hi!')}` |
+| `style` | `Object` | Pass a style object | `style={{ verticalAlign: 'middle' }}` |
+| `cssClasses` | `String` | Pass a string with cssClasses | `cssClasses="myButton"` |

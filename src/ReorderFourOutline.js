@@ -14,7 +14,7 @@ const ReorderFourOutline = props => {
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
     >
-      <span dangerouslySetInnerHTML={{__html: '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Reorder Four</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M96 304h320M96 208h320M96 112h320M96 400h320"/></svg>'}} />
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Reorder Four</title><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="M96 304h320M96 208h320M96 112h320M96 400h320"/></svg>
     </SvgContainer>
   )
 }

@@ -14,7 +14,7 @@ const StopOutline = props => {
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
     >
-      <span dangerouslySetInnerHTML={{__html: '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Stop</title><rect x="96" y="96" width="320" height="320" rx="24" ry="24" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/></svg>'}} />
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Stop</title><rect x="96" y="96" width="320" height="320" rx="24" ry="24" fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="32"/></svg>
     </SvgContainer>
   )
 }

@@ -14,7 +14,7 @@ const CaretDownSharp = props => {
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
     >
-      <span dangerouslySetInnerHTML={{__html: '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Caret Down</title><path d="M64 144l192 224 192-224H64z"/></svg>'}} />
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Caret Down</title><path d="M64 144l192 224 192-224H64z"/></svg>
     </SvgContainer>
   )
 }

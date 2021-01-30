@@ -14,7 +14,7 @@ const PlaySkipBackSharp = props => {
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
     >
-      <span dangerouslySetInnerHTML={{__html: '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Play Skip Back</title><path d="M143.47 64v163.52L416 64v384L143.47 284.48V448H96V64h47.47z"/></svg>'}} />
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Play Skip Back</title><path d="M143.47 64v163.52L416 64v384L143.47 284.48V448H96V64h47.47z"/></svg>
     </SvgContainer>
   )
 }
