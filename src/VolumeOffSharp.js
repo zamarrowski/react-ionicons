@@ -13,6 +13,7 @@ const VolumeOffSharp = props => {
       rotate={props.rotate ? 1 : 0}
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
+      className={props.className}
     >
       <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Volume Off</title><path d="M237.65 176.1H144v159.8h93.65L368 440V72L237.65 176.1z"/></svg>
     </SvgContainer>

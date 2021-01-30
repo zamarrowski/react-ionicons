@@ -13,6 +13,7 @@ const FunnelSharp = props => {
       rotate={props.rotate ? 1 : 0}
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
+      className={props.className}
     >
       <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Funnel</title><path d="M0 48l192 240v128l128 48V288L512 48H0z"/></svg>
     </SvgContainer>
