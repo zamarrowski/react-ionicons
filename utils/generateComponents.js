@@ -21,9 +21,8 @@ const ${toCamelCase(componentName)} = props => {
       rotate={props.rotate ? 1 : 0}
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
-      verticalAlign={props.verticalAlign}
     >
-      <span dangerouslySetInnerHTML={{__html: '${svg}'}} />
+      ${svg}
     </SvgContainer>
   )
 }
@@ -67,10 +66,17 @@ export default ${toCamelCase(componentName)}`
 const components = []
 fs.readdir('./svgicons', (err, files) => {
   files.forEach(file => {
-    const svg = fs.readFileSync('./svgicons/' + file)
+    let svg = String(fs.readFileSync('./svgicons/' + file))
+    svg = svg.replace(/class/g, 'className')
+    svg = svg.replace(/stroke-linejoin/g, 'strokeLinejoin')
+    svg = svg.replace(/stroke-width/g, 'strokeWidth')
+    svg = svg.replace(/stroke-miterlimit/g, 'strokeMiterlimit')
+    svg = svg.replace(/stroke-linecap/g, 'strokeLinecap')
+    svg = svg.replace('className="ionicon"', '')
+    svg = svg.replace('<svg', '<svg style={props.style} className={props.cssClasses}')
     const component = createTemplate(file.replace('.svg', ''), String(svg))
     const fileName = toCamelCase(file.replace('.svg', ''))
-    // fs.writeFile('./../src/' + fileName + '.js', component, err => console.log(err))
+    fs.writeFile('./../src/' + fileName + '.js', component, err => console.log(err))
     components.push(fileName)
     // fs.writeFile('./components.js', `export default ${JSON.stringify(components)}`, err => console.log(err))
     const exportFile = components.map(c => `export { default as ${c} } from './${c}'`).join('\n')

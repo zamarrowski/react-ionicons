@@ -14,7 +14,7 @@ const PodiumSharp = props => {
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
     >
-      <span dangerouslySetInnerHTML={{__html: '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Podium</title><path d="M160 32h192v448H160zM384 192h112v288H384zM16 128h112v352H16z"/></svg>'}} />
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Podium</title><path d="M160 32h192v448H160zM384 192h112v288H384zM16 128h112v352H16z"/></svg>
     </SvgContainer>
   )
 }
