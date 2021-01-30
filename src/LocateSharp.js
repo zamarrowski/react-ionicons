@@ -13,6 +13,7 @@ const LocateSharp = props => {
       rotate={props.rotate ? 1 : 0}
       shake={props.shake ? 1 : 0}
       beat={props.beat ? 1 : 0}
+      className={props.className}
     >
       <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Locate</title><path fill="none" stroke="currentColor" strokeLinecap="square" strokeLinejoin="round" strokeWidth="48" d="M256 96V56M256 456v-40M256 112a144 144 0 10144 144 144 144 0 00-144-144zM416 256h40M56 256h40"/></svg>
     </SvgContainer>
