@@ -46,6 +46,7 @@ import { LogoNodejs } from 'react-ionicons'
 * Animations.
 * Customizable.
 * Support to Create React App.
+* Typescript support.
 
 ## API:
 
