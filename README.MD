@@ -8,6 +8,7 @@ Beautiful doc in https://react-ionicons.netlify.app/
 
 ## Install
 
+
 ```sh
 $ npm install --save react-ionicons
 ```
@@ -40,7 +41,6 @@ import { LogoNodejs } from 'react-ionicons'
 
 ## Features
 
-* No dependencies, just React.
 * SVG Icons.
 * Simple API.
 * Animations.
