@@ -15,7 +15,7 @@ const CaretUpSharp = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Caret Up</title><path d="M448 368L256 144 64 368h384z"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M448 368L256 144 64 368h384z"/></svg>
     </SvgContainer>
   )
 }
@@ -28,6 +28,7 @@ CaretUpSharp.defaultProps = {
   height: '22px',
   width: '22px',
   cssClasses: '',
+  title: '',
 
   // animation
   shake: false,
@@ -43,6 +44,7 @@ CaretUpSharp.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
   cssClasses: PropTypes.string,
+  title: PropTypes.string,
 
   // animation
   shake: PropTypes.bool,

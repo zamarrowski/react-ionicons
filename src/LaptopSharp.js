@@ -15,7 +15,7 @@ const LaptopSharp = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Laptop</title><path d="M477.29 400a27.75 27.75 0 002.71-12V108a28 28 0 00-28-28H60a28 28 0 00-28 28v280a27.75 27.75 0 002.71 12H0v32h512v-32z"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M477.29 400a27.75 27.75 0 002.71-12V108a28 28 0 00-28-28H60a28 28 0 00-28 28v280a27.75 27.75 0 002.71 12H0v32h512v-32z"/></svg>
     </SvgContainer>
   )
 }
@@ -28,6 +28,7 @@ LaptopSharp.defaultProps = {
   height: '22px',
   width: '22px',
   cssClasses: '',
+  title: '',
 
   // animation
   shake: false,
@@ -43,6 +44,7 @@ LaptopSharp.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
   cssClasses: PropTypes.string,
+  title: PropTypes.string,
 
   // animation
   shake: PropTypes.bool,

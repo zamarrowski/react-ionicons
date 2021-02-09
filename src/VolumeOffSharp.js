@@ -15,7 +15,7 @@ const VolumeOffSharp = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Volume Off</title><path d="M237.65 176.1H144v159.8h93.65L368 440V72L237.65 176.1z"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M237.65 176.1H144v159.8h93.65L368 440V72L237.65 176.1z"/></svg>
     </SvgContainer>
   )
 }
@@ -28,6 +28,7 @@ VolumeOffSharp.defaultProps = {
   height: '22px',
   width: '22px',
   cssClasses: '',
+  title: '',
 
   // animation
   shake: false,
@@ -43,6 +44,7 @@ VolumeOffSharp.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
   cssClasses: PropTypes.string,
+  title: PropTypes.string,
 
   // animation
   shake: PropTypes.bool,

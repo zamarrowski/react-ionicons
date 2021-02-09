@@ -15,7 +15,7 @@ const CheckmarkOutline = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Checkmark</title><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="M416 128L192 384l-96-96"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="M416 128L192 384l-96-96"/></svg>
     </SvgContainer>
   )
 }
@@ -28,6 +28,7 @@ CheckmarkOutline.defaultProps = {
   height: '22px',
   width: '22px',
   cssClasses: '',
+  title: '',
 
   // animation
   shake: false,
@@ -43,6 +44,7 @@ CheckmarkOutline.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
   cssClasses: PropTypes.string,
+  title: PropTypes.string,
 
   // animation
   shake: PropTypes.bool,

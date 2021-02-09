@@ -15,7 +15,7 @@ const StarHalf = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Star Half</title><path d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z" fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="32"/><path d="M256 48v316L118 464l54-160-140-96h172l52-160z"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z" fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="32"/><path d="M256 48v316L118 464l54-160-140-96h172l52-160z"/></svg>
     </SvgContainer>
   )
 }
@@ -28,6 +28,7 @@ StarHalf.defaultProps = {
   height: '22px',
   width: '22px',
   cssClasses: '',
+  title: '',
 
   // animation
   shake: false,
@@ -43,6 +44,7 @@ StarHalf.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
   cssClasses: PropTypes.string,
+  title: PropTypes.string,
 
   // animation
   shake: PropTypes.bool,

@@ -15,7 +15,7 @@ const ReorderFourSharp = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Reorder Four</title><path fill="none" stroke="currentColor" strokeLinecap="square" strokeLinejoin="round" strokeWidth="44" d="M102 304h308M102 208h308M102 112h308M102 400h308"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path fill="none" stroke="currentColor" strokeLinecap="square" strokeLinejoin="round" strokeWidth="44" d="M102 304h308M102 208h308M102 112h308M102 400h308"/></svg>
     </SvgContainer>
   )
 }
@@ -28,6 +28,7 @@ ReorderFourSharp.defaultProps = {
   height: '22px',
   width: '22px',
   cssClasses: '',
+  title: '',
 
   // animation
   shake: false,
@@ -43,6 +44,7 @@ ReorderFourSharp.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
   cssClasses: PropTypes.string,
+  title: PropTypes.string,
 
   // animation
   shake: PropTypes.bool,

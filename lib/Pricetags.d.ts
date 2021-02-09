@@ -7,6 +7,7 @@ declare namespace Pricetags {
         const height: string;
         const width: string;
         const cssClasses: string;
+        const title: string;
         const shake: boolean;
         const beat: boolean;
         const rotate: boolean;
@@ -22,6 +23,8 @@ declare namespace Pricetags {
         export { width_1 as width };
         const cssClasses_1: any;
         export { cssClasses_1 as cssClasses };
+        const title_1: any;
+        export { title_1 as title };
         const shake_1: any;
         export { shake_1 as shake };
         const beat_1: any;

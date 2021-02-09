@@ -36,6 +36,7 @@ ${toCamelCase(componentName)}.defaultProps = {
   height: '22px',
   width: '22px',
   cssClasses: '',
+  title: '',
 
   // animation
   shake: false,
@@ -51,6 +52,7 @@ ${toCamelCase(componentName)}.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
   cssClasses: PropTypes.string,
+  title: PropTypes.string,
 
   // animation
   shake: PropTypes.bool,
@@ -75,6 +77,7 @@ fs.readdir('./svgicons', (err, files) => {
     svg = svg.replace(/stroke-linecap/g, 'strokeLinecap')
     svg = svg.replace('className="ionicon"', '')
     svg = svg.replace('<svg', '<svg style={props.style} className={props.cssClasses}')
+    svg = svg.replace(/<title>.*<\/title>/, "{props.title ? <title>{props.title}</title> : ''}")
     const component = createTemplate(file.replace('.svg', ''), String(svg))
     const fileName = toCamelCase(file.replace('.svg', ''))
     fs.writeFile('./../src/' + fileName + '.js', component, err => console.log(err))

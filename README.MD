@@ -55,9 +55,10 @@ import { LogoNodejs } from 'react-ionicons'
 | `height` | `String` | Icon size. Allow all units (px, em, %, pt...). | `height="22px"` |
 | `width` | `String` | Icon size. Allow all units (px, em, %, pt...). | `width="22px"` |
 | `color` | `String` | Icon color. Allow string (blue, red, cyan...), rgb, rgba and hexadecimal colors. | `color="#C9C9C9"` |
+| `title` | `String` | Tooltip for the icon | `title="this is a tooltip"` |
+| `cssClasses` | `String` | Pass a string with cssClasses | `cssClasses="myButton"` |
 | `rotate` | `Boolean` | Apply rotate animation to icon | `rotate={true}` |
 | `shake` | `Boolean` | Apply shake animation to icon | `shake={true}` |
 | `beat` | `Boolean` | Apply beat animation to icon | `beat={true}` |
 | `onClick` | `Function` | Pass a function to execute onClick | `onClick={() => console.log('Hi!')}` |
 | `style` | `Object` | Pass a style object | `style={{ verticalAlign: 'middle' }}` |
-| `cssClasses` | `String` | Pass a string with cssClasses | `cssClasses="myButton"` |
