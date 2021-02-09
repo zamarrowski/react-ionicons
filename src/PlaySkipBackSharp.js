@@ -15,7 +15,7 @@ const PlaySkipBackSharp = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><title>Play Skip Back</title><path d="M143.47 64v163.52L416 64v384L143.47 284.48V448H96V64h47.47z"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M143.47 64v163.52L416 64v384L143.47 284.48V448H96V64h47.47z"/></svg>
     </SvgContainer>
   )
 }
@@ -28,6 +28,7 @@ PlaySkipBackSharp.defaultProps = {
   height: '22px',
   width: '22px',
   cssClasses: '',
+  title: '',
 
   // animation
   shake: false,
@@ -43,6 +44,7 @@ PlaySkipBackSharp.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
   cssClasses: PropTypes.string,
+  title: PropTypes.string,
 
   // animation
   shake: PropTypes.bool,
