@@ -15,7 +15,7 @@ const StatsChartSharp = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M128 496H48V304h80zM352 496h-80V208h80zM464 496h-80V96h80zM240 496h-80V16h80z"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M128 496H48V304h80zM352 496h-80V208h80zM464 496h-80V96h80zM240 496h-80V16h80z" /></svg>
     </SvgContainer>
   )
 }
@@ -24,7 +24,7 @@ const StatsChartSharp = props => {
 StatsChartSharp.defaultProps = {
   // style
   style: {},
-  color: '#000000',
+  color: 'inherit',
   height: '22px',
   width: '22px',
   cssClasses: '',

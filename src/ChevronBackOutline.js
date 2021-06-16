@@ -15,7 +15,7 @@ const ChevronBackOutline = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="48" d="M328 112L184 256l144 144"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="48" d="M328 112L184 256l144 144" /></svg>
     </SvgContainer>
   )
 }
@@ -24,7 +24,7 @@ const ChevronBackOutline = props => {
 ChevronBackOutline.defaultProps = {
   // style
   style: {},
-  color: '#000000',
+  color: 'inherit',
   height: '22px',
   width: '22px',
   cssClasses: '',

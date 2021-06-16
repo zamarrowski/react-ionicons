@@ -15,7 +15,7 @@ const PersonSharp = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M256 256a112 112 0 10-112-112 112 112 0 00112 112zm0 32c-69.42 0-208 42.88-208 128v64h416v-64c0-85.12-138.58-128-208-128z" /></svg>
     </SvgContainer>
   )
 }
@@ -24,7 +24,7 @@ const PersonSharp = props => {
 PersonSharp.defaultProps = {
   // style
   style: {},
-  color: '#000000',
+  color: 'inherit',
   height: '22px',
   width: '22px',
   cssClasses: '',

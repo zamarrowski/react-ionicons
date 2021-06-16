@@ -15,7 +15,7 @@ const TriangleOutline = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="M48 448L256 64l208 384H48z"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="M48 448L256 64l208 384H48z" /></svg>
     </SvgContainer>
   )
 }
@@ -24,7 +24,7 @@ const TriangleOutline = props => {
 TriangleOutline.defaultProps = {
   // style
   style: {},
-  color: '#000000',
+  color: 'inherit',
   height: '22px',
   width: '22px',
   cssClasses: '',

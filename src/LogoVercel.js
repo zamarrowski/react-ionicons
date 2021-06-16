@@ -15,7 +15,7 @@ const LogoVercel = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path fill-rule="evenodd" d="M256 48l240 416H16z"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path fill-rule="evenodd" d="M256 48l240 416H16z" /></svg>
     </SvgContainer>
   )
 }
@@ -24,7 +24,7 @@ const LogoVercel = props => {
 LogoVercel.defaultProps = {
   // style
   style: {},
-  color: '#000000',
+  color: 'inherit',
   height: '22px',
   width: '22px',
   cssClasses: '',

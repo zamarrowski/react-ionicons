@@ -15,7 +15,7 @@ const PodiumSharp = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M160 32h192v448H160zM384 192h112v288H384zM16 128h112v352H16z"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M160 32h192v448H160zM384 192h112v288H384zM16 128h112v352H16z" /></svg>
     </SvgContainer>
   )
 }
@@ -24,7 +24,7 @@ const PodiumSharp = props => {
 PodiumSharp.defaultProps = {
   // style
   style: {},
-  color: '#000000',
+  color: 'inherit',
   height: '22px',
   width: '22px',
   cssClasses: '',

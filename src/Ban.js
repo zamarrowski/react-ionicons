@@ -15,7 +15,7 @@ const Ban = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<circle fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="48" cx="256" cy="256" r="200"/><path stroke="currentColor" strokeMiterlimit="10" strokeWidth="48" d="M114.58 114.58l282.84 282.84"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<circle fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="48" cx="256" cy="256" r="200" /><path stroke="currentColor" strokeMiterlimit="10" strokeWidth="48" d="M114.58 114.58l282.84 282.84" /></svg>
     </SvgContainer>
   )
 }
@@ -24,7 +24,7 @@ const Ban = props => {
 Ban.defaultProps = {
   // style
   style: {},
-  color: '#000000',
+  color: 'inherit',
   height: '22px',
   width: '22px',
   cssClasses: '',
