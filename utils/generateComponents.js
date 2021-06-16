@@ -32,7 +32,7 @@ const ${toCamelCase(componentName)} = props => {
 ${toCamelCase(componentName)}.defaultProps = {
   // style
   style: {},
-  color: '#000000',
+  color: 'inherit',
   height: '22px',
   width: '22px',
   cssClasses: '',

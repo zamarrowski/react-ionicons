@@ -15,7 +15,7 @@ const CropSharp = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M166 346V32h-44v90H32v44h90v224h224v90h44v-90h90v-44H166z"/><path d="M346 320h44V122H192v44h154v154z"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M166 346V32h-44v90H32v44h90v224h224v90h44v-90h90v-44H166z" /><path d="M346 320h44V122H192v44h154v154z" /></svg>
     </SvgContainer>
   )
 }
@@ -24,7 +24,7 @@ const CropSharp = props => {
 CropSharp.defaultProps = {
   // style
   style: {},
-  color: '#000000',
+  color: 'inherit',
   height: '22px',
   width: '22px',
   cssClasses: '',

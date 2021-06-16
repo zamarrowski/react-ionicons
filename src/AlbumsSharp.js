@@ -15,7 +15,7 @@ const AlbumsSharp = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M128 64h256v32H128zM96 112h320v32H96zM464 448H48V160h416z"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M128 64h256v32H128zM96 112h320v32H96zM464 448H48V160h416z" /></svg>
     </SvgContainer>
   )
 }
@@ -24,7 +24,7 @@ const AlbumsSharp = props => {
 AlbumsSharp.defaultProps = {
   // style
   style: {},
-  color: '#000000',
+  color: 'inherit',
   height: '22px',
   width: '22px',
   cssClasses: '',

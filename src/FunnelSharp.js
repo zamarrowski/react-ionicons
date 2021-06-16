@@ -15,7 +15,7 @@ const FunnelSharp = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M0 48l192 240v128l128 48V288L512 48H0z"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M0 48l192 240v128l128 48V288L512 48H0z" /></svg>
     </SvgContainer>
   )
 }
@@ -24,7 +24,7 @@ const FunnelSharp = props => {
 FunnelSharp.defaultProps = {
   // style
   style: {},
-  color: '#000000',
+  color: 'inherit',
   height: '22px',
   width: '22px',
   cssClasses: '',

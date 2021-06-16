@@ -15,7 +15,7 @@ const BarChartSharp = props => {
       beat={props.beat ? 1 : 0}
       className={props.className}
     >
-      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M496 496H16V16h32v448h448v32z"/><path d="M192 432H80V208h112zM336 432H224V160h112zM479.64 432h-112V96h112z"/></svg>
+      <svg style={props.style} className={props.cssClasses} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">{props.title ? <title>{props.title}</title> : ''}<path d="M496 496H16V16h32v448h448v32z" /><path d="M192 432H80V208h112zM336 432H224V160h112zM479.64 432h-112V96h112z" /></svg>
     </SvgContainer>
   )
 }
@@ -24,7 +24,7 @@ const BarChartSharp = props => {
 BarChartSharp.defaultProps = {
   // style
   style: {},
-  color: '#000000',
+  color: 'inherit',
   height: '22px',
   width: '22px',
   cssClasses: '',
