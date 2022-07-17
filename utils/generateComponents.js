@@ -76,6 +76,7 @@ fs.readdir('./svgicons', (err, files) => {
     svg = svg.replace(/stroke-miterlimit/g, 'strokeMiterlimit')
     svg = svg.replace(/stroke-linecap/g, 'strokeLinecap')
     svg = svg.replace('className="ionicon"', '')
+    svg = svg.replace(/fill-rule/g, 'fillRule')
     svg = svg.replace('<svg', '<svg style={props.style} className={props.cssClasses}')
     svg = svg.replace(/<title>.*<\/title>/, "{props.title ? <title>{props.title}</title> : ''}")
     const component = createTemplate(file.replace('.svg', ''), String(svg))
