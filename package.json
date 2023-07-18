@@ -10,6 +10,10 @@
     "react": "17.0.1",
     "react-dom": "17.0.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zamarrowski/react-ionicons.git"
+  },
   "scripts": {
     "prepublish": "babel ./src --out-dir ./lib --source-maps --presets es2015,react,stage-2 --plugins babel-plugin-add-module-exports && yarn ts",
     "start": "webpack --watch",
